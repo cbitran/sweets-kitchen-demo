@@ -27,7 +27,8 @@
     },5000);
   }
   let turboFlipping = false;
-  let turbo = false, sound = false, bet = 1, audio, engine;
+  let turbo = false, sound = true, bet = 1, audio, engine;
+  let turboReactionUntil=0, turboReactionTimer;
   const activeTones=new Set();
   let accumulatedCents=0;
   let winningsGeneration=0, pendingWinnings=null;
@@ -148,7 +149,7 @@
     $('game').classList.toggle('turbo-active',turbo);
     window.CandyMusic.setTurbo(turbo);
     const basePose=$('game').dataset.chefBasePose||'principal';
-    const pose=basePose==='esperando'?'principal':turbo&&['principal','torcendo','surpreso'].includes(basePose)?'turbo_assustado':basePose;
+    const pose=turbo&&performance.now()<turboReactionUntil&&!engine.busy?'turbo_assustado':basePose==='esperando'?'principal':basePose;
     $('game').dataset.chefPose=pose;
     const source=art(`chef_${['principal','turbo_assustado'].includes(pose)?'entusiasmado':pose}`);
     if($('chef').getAttribute('src')!==source)$('chef').src=source;
@@ -298,7 +299,10 @@
   for (const [id,delta] of [['minus',-1],['plus',1]]) $(id).addEventListener('click',()=>{if(engine.busy)return;bet=Math.max(1,Math.min(4,bet+delta));controls();window.dispatchEvent(new CustomEvent('candy:bet',{detail:{bet:bet*5,multiplier:bet,baseBet:5}} ));});
   function toggleTurbo(){
     if(engine.busy)return;
-    turbo=!turbo;$('game').dataset.chefBasePose='principal';controls();
+    turbo=!turbo;clearTimeout(turboReactionTimer);
+    turboReactionUntil=turbo?performance.now()+1800:0;
+    $('game').dataset.chefBasePose='principal';controls();
+    if(turbo)turboReactionTimer=setTimeout(()=>{turboReactionUntil=0;controls();},1800);
     if(turbo){
       showSpeech('Você é audacioso, hein? Gostei. Boa sorte.');
     }else hideSpeech();
@@ -333,8 +337,14 @@
   document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}}));
   window.addEventListener('candy:ready',controls);
   attach(window.CandyRoundProvider);
-  // Only the music control starts or stops the background track.
-  // Action effects use their own channel and do not change music preference.
+  // Start during loading; a gesture resumes audio if browser autoplay is blocked.
+  window.CandyMusic.setEnabled(sound);
+  const resumeOpeningMusic=event=>{
+    if(sound&&!event.target.closest?.('#sound'))window.CandyMusic.setEnabled(true);
+  };
+  document.addEventListener('pointerdown',resumeOpeningMusic,{capture:true});
+  document.addEventListener('keydown',resumeOpeningMusic,{capture:true});
+  // Muting stays authoritative: gestures never change the sound preference.
 
   window.CandySlot = Object.freeze({
     get state(){return engine.state;},
