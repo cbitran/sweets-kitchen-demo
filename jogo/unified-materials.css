@@ -211,8 +211,9 @@ dialog .paper-button,dialog>.paper-button:last-child{border:0;border-radius:0;ba
 .controls .bet{position:relative}
 .winnings-panel:before{content:none}
 .material-frame{position:absolute!important;inset:0;display:block;z-index:-1;pointer-events:none;line-height:0!important}
-.material-frame:before,.material-frame:after{content:"";position:absolute;top:0;bottom:0;width:7cqw;background:var(--ornate-plate) left center/auto 214% no-repeat}
-.material-frame:before{left:0}.material-frame:after{right:0;background-position:right center}
+.material-frame:before,.material-frame:after{content:"";position:absolute;top:0;bottom:0;width:11cqw;z-index:1;background:var(--ornate-plate) left center/auto 214% no-repeat}
+.material-frame:before{left:0;mask-image:linear-gradient(to right,#000 0 6.8cqw,transparent 11cqw);-webkit-mask-image:linear-gradient(to right,#000 0 6.8cqw,transparent 11cqw)}
+.material-frame:after{right:0;background-position:right center;mask-image:linear-gradient(to left,#000 0 6.8cqw,transparent 11cqw);-webkit-mask-image:linear-gradient(to left,#000 0 6.8cqw,transparent 11cqw)}
 .material-frame>i{position:absolute;inset:0 6.8cqw;background:var(--ornate-plate) center/1000% 214% no-repeat}
 .game>.round-tools{top:74%;height:5.8%;padding:1.2cqw 6.5cqw;gap:1.2cqw}
 .game>.controls:not(.scene-turbo){top:80.6%;height:7.2%;gap:3%}
