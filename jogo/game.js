@@ -29,6 +29,7 @@
   let turboFlipping = false;
   let turbo = false, sound = true, bet = 1, audio, engine;
   let turboReactionUntil=0, turboReactionTimer;
+  let winningFlight=null;
   const activeTones=new Set();
   let accumulatedCents=0;
   let winningsGeneration=0, pendingWinnings=null;
@@ -149,7 +150,7 @@
     $('game').classList.toggle('turbo-active',turbo);
     window.CandyMusic.setTurbo(turbo);
     const basePose=$('game').dataset.chefBasePose||'principal';
-    const pose=turbo&&performance.now()<turboReactionUntil&&!engine.busy?'turbo_assustado':basePose==='esperando'?'principal':basePose;
+    const pose=winningFlight&&engine.busy?'comemorando':turbo&&performance.now()<turboReactionUntil&&!engine.busy?'turbo_assustado':basePose==='esperando'?'principal':basePose;
     $('game').dataset.chefPose=pose;
     const source=art(`chef_${['principal','turbo_assustado'].includes(pose)?'entusiasmado':pose}`);
     if($('chef').getAttribute('src')!==source)$('chef').src=source;
@@ -335,6 +336,16 @@
   $('help-open').addEventListener('click',()=>{$('settings').close();$('help').showModal();});
   document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>button.closest('dialog').close()));
   document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}}));
+  window.addEventListener('candy:coin-flight-start',event=>{
+    winningFlight=event.detail;controls();
+  });
+  window.addEventListener('candy:coin-flight-approach',event=>{
+    if(winningFlight!==event.detail)return;
+    winningFlight=null;$('game').dataset.chefBasePose='esperando';controls();
+  });
+  window.addEventListener('candy:state',event=>{
+    if(['idle','spinning','result'].includes(event.detail.phase)){winningFlight=null;controls();}
+  });
   window.addEventListener('candy:ready',controls);
   attach(window.CandyRoundProvider);
   // Start during loading; a gesture resumes audio if browser autoplay is blocked.

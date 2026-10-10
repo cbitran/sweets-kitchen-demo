@@ -39,6 +39,8 @@
       {transform:'rotate(2.2deg)',offset:.45},{transform:'rotate(-1deg)',offset:.7},
       {transform:'rotate(0)'}
     ],{duration:650*speed,easing:'ease-in-out'});
+    const flight={round:state.round};
+    window.dispatchEvent(new CustomEvent('candy:coin-flight-start',{detail:flight}));
     const base=game.getBoundingClientRect(),target=jar.getBoundingClientRect();
     for(let i=0;i<5;i++){
       const star=document.createElement('i');star.className='win-star jar-arrival-star';
@@ -88,6 +90,8 @@
     const reportArrival=()=>window.dispatchEvent(new CustomEvent('candy:coins-arrived',{detail:{round:state.round}}));
     let remaining=indices.length;
     if(reduced.matches){indices.forEach(()=>deposit());reportArrival();return;}
+    const flight={round:state.round};
+    window.dispatchEvent(new CustomEvent('candy:coin-flight-start',{detail:flight}));
     const base=game.getBoundingClientRect(),target=jar.getBoundingClientRect();
     const endX=target.left-base.left+target.width*.5,endY=target.top-base.top+target.height*.18;
     indices.forEach((index,order)=>{
@@ -111,6 +115,16 @@
         frame(1,endX,endY+target.height*.52,.24,720,0)
       ],{duration:3400,delay:200+order*75,easing:'ease-in-out',fill:'both'});
       speedTrail(coin,animation,token);
+      if(order===0){
+        // Follow the actual flight clock; release the pose just before the jar.
+        const approach=()=>{
+          if(token!==generation||animation.playState==='idle')return;
+          if((animation.currentTime||0)>=200+3400*.82){
+            window.dispatchEvent(new CustomEvent('candy:coin-flight-approach',{detail:flight}));
+          }else requestAnimationFrame(approach);
+        };
+        requestAnimationFrame(approach);
+      }
       animation.finished.then(()=>{if(token===generation){deposit(speed);if(--remaining===0)reportArrival();}}).catch(()=>{}).finally(()=>coin.remove());
     });
   });
