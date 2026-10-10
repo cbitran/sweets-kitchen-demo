@@ -55,7 +55,7 @@
 
 /* Chef junto da marca, com a cintura escondida no encontro com a bancada. */
 .game>.chef{top:16%;left:1%;mask-image:linear-gradient(#000 0%,#000 72%,transparent 84%)}
-.game.celebrating>.chef{animation:chef-cheer 1100ms ease-in-out 2}
+.game[data-chef-pose=comemorando]>.chef{animation:chef-cheer 1100ms ease-in-out infinite}
 @keyframes chef-cheer{0%,100%{transform:translateY(0) rotate(0)}35%{transform:translateY(-2.8%) rotate(-2deg)}70%{transform:translateY(-1%) rotate(1.5deg)}}
 
 /* Estrelas nas combinações; camada independente para não cortar nas células. */
@@ -63,7 +63,7 @@
 .win-star{position:absolute;width:3.6cqw;height:3.6cqw;background:linear-gradient(135deg,#fffbe5 12%,#ffe896 40%,#e7a32e 80%);clip-path:polygon(50% 0,62% 34%,98% 35%,70% 57%,80% 94%,50% 72%,20% 94%,30% 57%,2% 35%,38% 34%);will-change:transform,opacity}
 .grid.has-match .cell.highlight{animation:winning-glow calc(620ms * var(--motion-speed,1)) ease-in-out 2}
 @keyframes winning-glow{0%,100%{box-shadow:inset 0 0 0 1px #fff9e2,0 0 8px #f8bf5277}50%{box-shadow:inset 0 0 14px #ffe6a6,0 0 16px #ffd36ecc}}
-@media(prefers-reduced-motion:reduce){.win-effects{display:none}.game.celebrating>.chef,.grid.has-match .cell.highlight{animation:none}}
+@media(prefers-reduced-motion:reduce){.win-effects{display:none}.game[data-chef-pose=comemorando]>.chef,.grid.has-match .cell.highlight{animation:none}}
 
 /* Peças elevadas sobre cavidades rasas, com folga para o pulso vencedor.
    Posicionamento absoluto evita que o tamanho intrínseco das artes expanda a célula.
