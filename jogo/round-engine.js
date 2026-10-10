@@ -254,7 +254,7 @@
         ]);
         if (signal.aborted) return false;
         const result = normalizeResult(rawResult);
-        const metadata = {};
+        const metadata = {coinBatches:result.steps.filter(step=>step.matched.length).length};
         if(result.fornadaProgress!==undefined)metadata.fornadaProgress=result.fornadaProgress;
         if(result.outcome!==undefined)metadata.outcome=result.outcome;
         if (result.remainingSpins !== undefined) metadata.remainingSpins = result.remainingSpins;
@@ -271,7 +271,7 @@
           if(step.fornadaProgress!==undefined)visual.fornadaProgress=step.fornadaProgress;
           this._emit({ phase: 'highlight', highlighted: step.matched.slice(), removed: [], chainIndex, comboSize: step.matched.length, hasMatches, ...visual });
           // Coin flight and board refill run concurrently from the same win.
-          if(step.matched.length)coinsCompleteAt=Math.max(coinsCompleteAt,performance.now()+3600+(Math.min(8,step.matched.length)-1)*75);
+          if(step.matched.length&&!globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches)coinsCompleteAt=Math.max(coinsCompleteAt,performance.now()+3600+(Math.min(8,step.matched.length)-1)*75);
           await delay(step.matched.length ? 820 : 200 * perStep, signal);
           this._emit({ phase: 'disappear', highlighted: [], removed: step.matched.slice() });
           // Burst already finished during highlight; no second empty-grid pause.

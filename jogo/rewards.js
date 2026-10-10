@@ -4,7 +4,7 @@
   const pile=document.getElementById('jar-coins'),flights=document.getElementById('coin-flights');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const coinSource='../assets/rewards/moeda-chef.png';
-  let lastPhase='',count=0,generation=0,jarRock;
+  let lastPhase='',count=0,generation=0,jarRock,completedBatches=0;
   const trailStops=new Set();
   function speedTrail(coin,animation,token){
     const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');
@@ -39,8 +39,6 @@
       {transform:'rotate(2.2deg)',offset:.45},{transform:'rotate(-1deg)',offset:.7},
       {transform:'rotate(0)'}
     ],{duration:650*speed,easing:'ease-in-out'});
-    const flight={round:state.round};
-    window.dispatchEvent(new CustomEvent('candy:coin-flight-start',{detail:flight}));
     const base=game.getBoundingClientRect(),target=jar.getBoundingClientRect();
     for(let i=0;i<5;i++){
       const star=document.createElement('i');star.className='win-star jar-arrival-star';
@@ -57,8 +55,9 @@
     }
   }
   function deposit(speed=1){
-    window.CandyMusic?.coinDrop();
-    arrival(speed);
+    // Decorative audio/rocking must never prevent a deposit or its completion.
+    try{window.CandyMusic?.coinDrop();}catch(error){console.warn('Coin audio effect failed',error);}
+    try{arrival(speed);}catch(error){console.warn('Coin arrival effect failed',error);}
     if(count>=28)return;
     const coin=new Image();coin.src=coinSource;coin.alt='';
     // Irregular overlapping heap: broad base, narrower crown, varied perspective.
@@ -72,7 +71,7 @@
     pile.append(coin);count++;
   }
   function clearFlights(){
-    generation++;
+    generation++;completedBatches=0;
     for(const stop of [...trailStops])stop();
     jarRock?.cancel();
     flights.getAnimations({subtree:true}).forEach(a=>a.cancel());
@@ -87,7 +86,10 @@
     if(state.phase==='spinning')clearFlights();
     if(state.phase!=='highlight'||!state.highlighted.length)return;
     const indices=state.highlighted.slice(0,8),token=generation;
-    const reportArrival=()=>window.dispatchEvent(new CustomEvent('candy:coins-arrived',{detail:{round:state.round}}));
+    const reportArrival=()=>{
+      completedBatches++;
+      if(completedBatches===(state.coinBatches||1))window.dispatchEvent(new CustomEvent('candy:coins-arrived',{detail:{round:state.round}}));
+    };
     let remaining=indices.length;
     if(reduced.matches){indices.forEach(()=>deposit());reportArrival();return;}
     const flight={round:state.round};
