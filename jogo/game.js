@@ -3,7 +3,7 @@
   const $ = id => document.getElementById(id);
   const symbols = ['cereja','pirulito','donut','macaron','cupcake','bolo','forno'];
   const names = {cereja:'Cereja',pirulito:'Pirulito',donut:'Donut',macaron:'Macaron',cupcake:'Cupcake',bolo:'Bolo',forno:'Forno especial'};
-  const art = name => `../assets/painterly-final/${name}.png`;
+  const art = name => `../assets/web/painterly-final/${name}.webp`;
   const grid = $('grid');
   let motionSpeed = 1;
   let speechTimer, speechExit;

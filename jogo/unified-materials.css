@@ -1,5 +1,5 @@
 /* Uma família de molduras: placa ornamental pintada + comandos de madeira pintada. */
-.game{--ornate-plate:url('../assets/painted-environment/etiqueta_base.png');--painted-key:url('../assets/painterly-final/icone_base.png')}
+.game{--ornate-plate:url('../assets/web/painted-environment/etiqueta_base.webp');--painted-key:url('../assets/web/painterly-final/icone_base.webp')}
 .hud .balance,.round-tools,.bet,.controls .turbo,.controls .turbo[aria-pressed=true]{border:0;border-radius:0;background:var(--ornate-plate) center/104% 214% no-repeat;box-shadow:none;filter:drop-shadow(0 .5cqw .3cqw #49240966)}
 .hud .balance{width:38%;padding:0 5%;gap:5%}.hud .balance:before,.hud .balance:after{content:none}
 .round-tools{padding:0 6%;gap:3%}.fornada .mixer{display:none}.fornada>div{width:100%;padding:0}.fornada span{font-size:2.7cqw}
@@ -12,7 +12,7 @@
 .turbo>b,.turbo[aria-pressed=true]>b{background:none;border:0;box-shadow:none;filter:none;font-size:5cqw;width:4cqw;flex-basis:4cqw;height:6cqw;padding:0;color:inherit}
 /* Mesmos materiais nos modais e em seus botões. */
 dialog{border-color:#ad783f;background:radial-gradient(ellipse at 25% 0%,#fff8e6,transparent 70%),linear-gradient(#fff0d1,#eed5a9);box-shadow:inset 0 0 0 2px #fff2c7,inset 0 0 0 5px #cda16b,inset 0 0 14px 8px #7b491b22,0 0 0 2px #e4ba78,0 6px 0 #76502a,0 18px 50px #160b08bb}
-dialog .paper-button,dialog>.paper-button:last-child{border:0;border-radius:0;background:url('../assets/painted-environment/etiqueta_base.png') center/104% 214% no-repeat;color:#553021;box-shadow:none;filter:drop-shadow(0 3px 2px #78482144);text-shadow:0 1px #fff5d9;min-height:56px}
+dialog .paper-button,dialog>.paper-button:last-child{border:0;border-radius:0;background:url('../assets/web/painted-environment/etiqueta_base.webp') center/104% 214% no-repeat;color:#553021;box-shadow:none;filter:drop-shadow(0 3px 2px #78482144);text-shadow:0 1px #fff5d9;min-height:56px}
 
 /* Aposta sem o mostrador antigo sobre a placa pintada. */
 .bet>div{background:none;border:0;border-radius:0;box-shadow:none}
@@ -106,7 +106,7 @@ dialog .paper-button,dialog>.paper-button:last-child{border:0;border-radius:0;ba
 #settings .toggle,#settings .toggle[aria-pressed=true]{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-width:145px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:#62432b;text-shadow:0 1px #fff9e3}
 #settings .toggle:before{content:none}
 .setting-state{font-size:13px;white-space:nowrap}
-.setting-chevron{position:relative;display:grid;place-items:center;width:46px;height:46px;flex:0 0 46px;background:url('../assets/painterly-final/icone_base.png') center/127% 127% no-repeat;filter:drop-shadow(0 2px 1px #71451f55);transition:transform .35s ease}
+.setting-chevron{position:relative;display:grid;place-items:center;width:46px;height:46px;flex:0 0 46px;background:url('../assets/web/painterly-final/icone_base.webp') center/127% 127% no-repeat;filter:drop-shadow(0 2px 1px #71451f55);transition:transform .35s ease}
 .setting-chevron img{width:32px;height:32px;object-fit:contain}
 .setting-chevron img:last-child{display:none}
 .toggle[aria-pressed=true] .setting-chevron{transform:rotate(-8deg)}
@@ -133,7 +133,7 @@ dialog .paper-button,dialog>.paper-button:last-child{border:0;border-radius:0;ba
 .menu-sweets img:nth-child(2){width:72px;height:72px;left:35px;right:auto}
 .menu-sweets img:nth-child(3){width:42px;height:42px;left:auto;right:-5px}
 /* VU occupies the same painted square as the menu control. */
-.hud>#sound,.hud>#sound[aria-pressed=true]{width:8.8cqw;height:8.8cqw;border:0;border-radius:20%;background:url('../assets/painterly-final/icone_base.png') center/127% 127% no-repeat;box-shadow:none;filter:drop-shadow(0 2px 1px #3b201855);color:#30634f;text-shadow:none}
+.hud>#sound,.hud>#sound[aria-pressed=true]{width:8.8cqw;height:8.8cqw;border:0;border-radius:20%;background:url('../assets/web/painterly-final/icone_base.webp') center/127% 127% no-repeat;box-shadow:none;filter:drop-shadow(0 2px 1px #3b201855);color:#30634f;text-shadow:none}
 .hud>#sound .sound-bars{position:absolute;inset:24% 20%;height:4.5cqw;display:flex;gap:.42cqw;align-items:flex-end;opacity:1;visibility:visible}
 .hud>#sound .sound-bars i{height:100%;min-width:0;border-radius:2px;background:repeating-linear-gradient(to top,#367354 0 3px,#fff0cb 3px 4px);transform:scaleY(.28);transform-origin:bottom;box-shadow:inset 1px 0 #d6c87788}
 .hud>#sound[aria-pressed=false] .sound-bars i{background:repeating-linear-gradient(to top,#967a50 0 3px,#fff0cb 3px 4px)}
@@ -288,7 +288,7 @@ dialog .paper-button,dialog>.paper-button:last-child{border:0;border-radius:0;ba
 
 /* Active state is painted into the original artwork, beneath its gold carving. */
 .controls .turbo .turbo-enamel{display:none}
-.controls .turbo[aria-pressed=true]{--ornate-plate:url('../assets/rewards/etiqueta-turbo-vermelha.png')}
+.controls .turbo[aria-pressed=true]{--ornate-plate:url('../assets/web/rewards/etiqueta-turbo-vermelha.webp')}
 .controls .turbo .turbo-bolts{left:-65%;top:-60%;opacity:0}
 .controls .turbo .turbo-bolts path{fill:none;stroke:#ffeac1;stroke-width:.85;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 1px #fff7df) drop-shadow(0 0 3px #f0a44c);stroke-dasharray:100;stroke-dashoffset:100;opacity:0;transform:none}
 .controls .turbo[aria-pressed=true] .turbo-bolts path{animation:turbo-electric-trace 3.7s linear infinite}

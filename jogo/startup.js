@@ -28,22 +28,21 @@
   function loadImage(url){
     return new Promise((resolve,reject)=>{
       const img=new Image();
-      const timer=setTimeout(()=>{img.onload=img.onerror=null;reject(new Error('Tempo de carregamento excedido'));},15000);
+      const timer=setTimeout(()=>{img.onload=img.onerror=null;reject(new Error('Tempo de carregamento excedido'));},30000);
       img.onload=async()=>{try{if(img.decode)await img.decode();clearTimeout(timer);resolve();}catch(error){clearTimeout(timer);reject(error);}};
       img.onerror=()=>{clearTimeout(timer);reject(new Error('Imagem indisponível'));};
       img.src=url;
     });
   }
   async function preload(){
-    const assets=new Set([...document.querySelectorAll('img')].map(img=>img.getAttribute('src')));
-    for(const name of ['fundo_confeitaria_sem_cupcakes','fundo_sem_luminarias','mesa_confeitaria','bandeja_grade_fina','etiqueta_base'])assets.add(`../assets/painted-environment/${name}.png`);
-    for(const name of ['botao_girar_base','icone_base','chef_parado','chef_piscando','chef_comemorando','chef_entusiasmado','chef_surpreso','chef_triste','chef_torcendo','chef_turbo_assustado'])assets.add(`../assets/painterly-final/${name}.png`);
-    for(const level of [0,25,50,75,100])assets.add(`../assets/painterly-final/batedeira_${level}.png`);
-    assets.add('../assets/rewards/borboleta.png');
-    assets.add('../assets/rewards/etiqueta-turbo-vermelha.png');
+    const assets=new Set([...document.querySelectorAll('img')].map(img=>img.getAttribute('src')).filter(Boolean));
+    for(const name of ['fundo_confeitaria_sem_cupcakes','fundo_sem_luminarias','mesa_confeitaria','bandeja_grade_fina','etiqueta_base'])assets.add(`../assets/web/painted-environment/${name}.webp`);
+    for(const name of ['botao_girar_base','icone_base','chef_comemorando','chef_entusiasmado','chef_triste','chef_torcendo','chef_turbo_assustado'])assets.add(`../assets/web/painterly-final/${name}.webp`);
+    assets.add('../assets/web/rewards/borboleta.webp');
+    assets.add('../assets/web/rewards/etiqueta-turbo-vermelha.webp');
     let completed=0;
     const results=await Promise.allSettled([...assets].map(async (url,index)=>{
-      await Promise.all([loadImage(url),delay(4000*(index+1)/assets.size)]);completed++;
+      await loadImage(url);completed++;
       const value=Math.round(completed/assets.size*100);
       progress.style.setProperty('--loaded',value+'%');progress.setAttribute('aria-valuenow',String(value));percent.textContent=value+'%';
     }));
@@ -51,7 +50,7 @@
     if(document.fonts)await Promise.race([document.fonts.ready,delay(1200)]);
   }
   function animate(element,keyframes,duration,offset=0){
-    const animation=element.animate(keyframes,{duration,delay:offset,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'});
+    const animation=element.animate(keyframes,{duration:duration*.45,delay:offset*.45,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'});
     animations.push(animation);return animation.finished.catch(()=>{});
   }
   async function assemble(){
@@ -82,7 +81,6 @@
     try{
       progress.style.setProperty('--loaded','0%');percent.textContent='0%';progress.setAttribute('aria-valuenow','0');
       await preload();
-      await delay(600);
       await assemble();game.dataset.boot='ready';game.setAttribute('aria-busy','false');
       animations.forEach(animation=>animation.cancel());animations=[];
       groups.forEach(selector=>game.querySelector(selector).inert=false);

@@ -17,7 +17,7 @@
     clearTimeout(timer);timer=setTimeout(butterfly,3500+Math.random()*3000);
     if(reduced.matches||document.hidden||butterflies.size>=3)return;
     const el=document.createElement('span');el.className='ambient-butterfly';el.setAttribute('aria-hidden','true');
-    el.innerHTML='<span class="butterfly-body"><img class="butterfly-wing wing-left" src="../assets/rewards/borboleta.png" alt=""><img class="butterfly-wing wing-right" src="../assets/rewards/borboleta.png" alt=""><img class="butterfly-core" src="../assets/rewards/borboleta.png" alt=""></span>';
+    el.innerHTML='<span class="butterfly-body"><img class="butterfly-wing wing-left" src="../assets/web/rewards/borboleta.webp" alt=""><img class="butterfly-wing wing-right" src="../assets/web/rewards/borboleta.webp" alt=""><img class="butterfly-core" src="../assets/web/rewards/borboleta.webp" alt=""></span>';
     game.append(el);
     const fromLeft=nextSide;nextSide=!nextSide;
     const direction=fromLeft?1:-1,y=9+Math.random()*17;

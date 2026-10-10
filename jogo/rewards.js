@@ -3,7 +3,7 @@
   const game=document.getElementById('game'),jar=document.getElementById('reward-jar');
   const pile=document.getElementById('jar-coins'),flights=document.getElementById('coin-flights');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  const coinSource='../assets/rewards/moeda-chef.png';
+  const coinSource='../assets/web/rewards/moeda-chef.webp';
   let lastPhase='',count=0,generation=0,jarRock,completedBatches=0;
   const trailStops=new Set();
   function speedTrail(coin,animation,token){
