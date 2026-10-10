@@ -1,0 +1,78 @@
+/* Composição revisada: cenário livre no terço superior e controles agrupados. */
+/* Luz alinhada às chamas pintadas no fundo; atrás dos controles. */
+.lantern-light{position:absolute;z-index:1;pointer-events:none;left:27.3%;top:5.7%;width:24%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,#fff6bd99 0%,#ffd36c70 12%,#ffbd4545 28%,#ffa1331c 48%,transparent 70%);mix-blend-mode:screen;opacity:.65;animation:lantern-glow 3.7s linear infinite}
+.lantern-light-right{left:68.9%;top:5.8%;animation-duration:4.3s;animation-delay:-1.7s}
+.lantern-light:after{content:'';position:absolute;left:46%;top:41%;width:8%;height:18%;border-radius:60% 40% 55% 45%;background:radial-gradient(ellipse,#fffbe9bb 0%,#ffe39e77 40%,transparent 72%);transform-origin:50% 85%;animation:lantern-flame 1.9s ease-in-out infinite}
+.lantern-light-right:after{animation-duration:2.3s;animation-delay:-.9s}
+@keyframes lantern-glow{
+  0%,100%{opacity:.72;transform:translate(-50%,-50%) scale(1)}
+  12%{opacity:.88;transform:translate(-50%,-50%) scale(1.04)}
+  16%{opacity:.44;transform:translate(-50%,-50%) scale(.95)}
+  20%{opacity:.94;transform:translate(-50%,-50%) scale(1.06)}
+  36%{opacity:.75;transform:translate(-50%,-50%) scale(1.01)}
+  43%{opacity:.52;transform:translate(-50%,-50%) scale(.97)}
+  47%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+  65%{opacity:.81;transform:translate(-50%,-50%) scale(1.03)}
+  74%{opacity:.46;transform:translate(-50%,-50%) scale(.96)}
+  79%{opacity:.93;transform:translate(-50%,-50%) scale(1.05)}
+  89%{opacity:.68;transform:translate(-50%,-50%) scale(.99)}
+}
+@keyframes lantern-flame{
+  0%,100%{opacity:.86;transform:rotate(-3deg) scale(.97,1.04)}
+  19%{opacity:1;transform:rotate(5deg) scale(.88,1.13)}
+  29%{opacity:.48;transform:rotate(-7deg) scale(1.04,.86)}
+  38%{opacity:.95;transform:rotate(3deg) scale(.93,1.12)}
+  62%{opacity:.8;transform:rotate(-4deg) scale(1.01,.98)}
+  76%{opacity:.52;transform:rotate(6deg) scale(.9,.88)}
+  84%{opacity:1;transform:rotate(-2deg) scale(.95,1.1)}
+}
+@media(prefers-reduced-motion:reduce){.lantern-light,.lantern-light:after{animation:none}}
+.hud{top:4%;height:6.4%;gap:3%}.balance{width:49%;border-radius:18px;padding:2% 5% 2% 3%;border:1px solid #bd965f;background:#fff4d6ed;box-shadow:0 2px 8px #24140640}.balance small{font-size:2.8cqw}.balance strong{font-size:5.2cqw}.hud>.icon{width:11.5cqw;height:11.5cqw;font-size:5.5cqw}.hud>#sound{margin-left:auto}.hud>#menu{margin-left:0}
+.brand{top:15%;left:39%;width:40%;font-size:8.3cqw}.brand span{font-size:5.7cqw;letter-spacing:.18em;margin-top:.2em}.chef{top:22%;left:0;width:38%}.worktop{top:33%;height:65%;left:-2%;width:104%}.board{top:34%;left:4.5%;width:91%;height:35.5%}.board-frame{border-radius:6%;filter:drop-shadow(0 3px 4px #3a200966)}.grid{inset:5.8% 4%;gap:.8%;border-radius:3%}.cell{background:transparent;border-color:#b68b5633;border-radius:12%}.cell img{width:95%;height:95%;transition:filter .2s;will-change:transform,opacity}.grid.spinning img,.grid.cascade .cell.falling img,.cell.disappear img{animation:none}.cell.highlight{background:#fff2c377;box-shadow:inset 0 0 12px #edbd6599}.cell.highlight img{filter:drop-shadow(0 0 5px #ffbd50);transform:scale(1.06)}
+.round-tools{position:absolute;z-index:7;top:71%;left:7%;right:7%;height:6.3%;display:flex;align-items:center;gap:4%;padding:0 3%;background:#fff3dccc;border:1px solid #b6936066;border-radius:14px;box-shadow:0 2px 5px #41200e22}.fornada{display:flex;align-items:center;gap:6%;flex:1;min-width:0;height:100%}.fornada .mixer{position:static;flex-shrink:0;width:11cqw;height:11cqw;object-fit:contain}.fornada>div{width:100%}.fornada span{font-size:3cqw;font-weight:800}.progress{height:1.4cqw;min-height:4px;background:#d9c4a3;border-radius:30px;margin-top:1cqw;overflow:hidden}.progress i{display:block;height:100%;width:0;background:#678d73;border-radius:inherit;transition:width .5s ease}.round-tools .multiplier{position:static;width:auto;height:auto;flex-shrink:0;border:0;border-radius:0;background:transparent;box-shadow:none;font-size:5.1cqw;padding:0 2%}.prizes{background:transparent;border-left:1px solid #ae8c5d66;padding:0 0 0 4%;height:70%;font-size:3cqw;font-weight:800;min-height:36px}
+.controls{top:79.6%;left:7%;right:7%;height:7.4%;gap:5%}.bet{width:66%;height:100%;padding:0 1%;border:1px solid #b88c4c;border-radius:16px;box-shadow:0 3px 6px #46240933;background:#fff1d9}.bet .icon{background:transparent;width:13cqw;height:13cqw;border-radius:12px;font-size:6.4cqw}.controls small{font-size:3cqw;line-height:1.2;text-transform:none}.bet output{font-size:5.3cqw;line-height:1.05}.controls .turbo{width:29%;height:100%;display:flex;justify-content:center;align-items:center;gap:8%;background:#efe0c4;border:1px solid #ae8950;border-radius:16px;font-size:5.5cqw;box-shadow:0 3px 6px #46240933}.turbo span{position:static;display:block;font-size:3.2cqw;line-height:1.3;text-align:left}.turbo span small{font-size:2.5cqw;font-weight:700;display:block;opacity:.8}.turbo[aria-pressed=true]{background:#315f50;color:#fff4d6;border-color:#315f50}.turbo[aria-pressed=true]:after{display:none}.spin{left:22%;width:56%;top:88.7%;height:7.5%;font-size:6.1cqw}.spin span{font-size:6cqw}.game footer{bottom:.7%;font-size:2.3cqw}
+#prizes{max-width:460px}#prizes .payout{position:static;width:100%;height:auto;margin:24px 0;padding:10px;border:1px solid #d4b688;border-radius:16px;box-shadow:none;background:#fff8e9;overflow:hidden}#prizes table{font-size:15px;height:auto}#prizes th{font-size:13px;padding:8px 0}#prizes td{padding:8px 0}#prizes tbody th img{width:38px;height:34px}#prizes tbody tr+tr{border-top:1px solid #dfcdae77}.prize-note{font-size:13px;color:#735b48}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}.round-label{font-size:3cqw;left:10%;right:10%;top:37%}
+@media(prefers-reduced-motion:reduce){.progress i{transition:none}.cell.disappear img{opacity:.15}}
+
+/* Abertura: tela de carga independente da montagem do tabuleiro. */
+.game[data-boot=loading]>:not(.startup){visibility:hidden}
+.startup{position:absolute;z-index:100;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(ellipse at 50% 28%,#875331 0%,#4e3025 42%,#241b19 100%);color:#fff1d5;text-align:center;padding:12%;overflow:hidden}
+.startup:before,.startup:after{content:'';position:absolute;width:62%;aspect-ratio:1;border:1px solid #d8af6550;border-radius:50%;pointer-events:none}.startup:before{top:12%;left:-40%;width:95%}.startup:after{bottom:1%;right:-37%;width:90%}
+.startup[hidden]{display:none}.startup-mark{font:700 16cqw/.9 Fredoka,ui-rounded,sans-serif;color:#ffe4a4;text-shadow:0 4px 18px #2d151155}.startup-mark span{display:block;font-size:8cqw;letter-spacing:.28em;margin:3cqw 0 0 .28em}.startup p{font-size:3.4cqw;margin:10cqw 0 5cqw;min-height:1.5em}.startup-track{width:80%;height:2cqw;border-radius:999px;background:#1e110b80;border:1px solid #ceac6e66;padding:2px;overflow:hidden}.startup-track i{display:block;height:100%;width:var(--loaded,0%);background:linear-gradient(90deg,#bc7b3e,#ffe4a4);border-radius:inherit;transition:width .2s ease}.startup-percent{font-size:3cqw;margin-top:3cqw;font-variant-numeric:tabular-nums;color:#e8cb9a}.startup>small{position:absolute;bottom:6%;font-size:2.8cqw;color:#d1b894}.startup button{margin-top:7cqw;background:#ffe4a4;color:#442338;border-radius:14px;padding:12px 22px;font-weight:800;min-height:44px}.game[data-boot=assembling] .chef{animation:none}
+@media(prefers-reduced-motion:reduce){.startup-track i{transition:none}}
+
+/* Identificação inequívoca da combinação antes da remoção. */
+.grid.has-match .cell:not(.highlight){opacity:.38;filter:saturate(.6);transition:opacity .18s,filter .18s}
+.grid.has-match .cell.highlight{z-index:2;border:2px solid #d99520;background:#fff1bd;box-shadow:inset 0 0 0 1px #fff9e2,0 0 10px #f8bf5299}
+.grid.has-match .cell.highlight:after{content:'✓';position:absolute;right:2%;top:2%;display:grid;place-items:center;width:3.3cqw;height:3.3cqw;min-width:12px;min-height:12px;border-radius:50%;background:#86521e;color:#fff8dd;font-size:2.6cqw;font-weight:900;box-shadow:0 1px 3px #3d230b55;pointer-events:none}
+.grid.has-match .cell.highlight img{filter:drop-shadow(0 0 5px #efb43b)}
+
+/* Marca original Sweets Kitchen. */
+.game>.brand{left:35%;top:12%;width:59%;height:19%;font-size:0;line-height:0;text-shadow:none}
+.brand>img{display:block;width:100%;height:100%;object-fit:contain}
+.startup-mark{width:126%;font-size:0;line-height:0;text-shadow:none}
+.startup-mark>img{display:block;width:100%;height:auto;object-fit:contain}
+
+/* Chef junto da marca, com a cintura escondida no encontro com a bancada. */
+.game>.chef{top:16%;left:1%;mask-image:linear-gradient(#000 0%,#000 72%,transparent 84%)}
+.game.celebrating>.chef{animation:chef-cheer 1100ms ease-in-out 2}
+@keyframes chef-cheer{0%,100%{transform:translateY(0) rotate(0)}35%{transform:translateY(-2.8%) rotate(-2deg)}70%{transform:translateY(-1%) rotate(1.5deg)}}
+
+/* Estrelas nas combinações; camada independente para não cortar nas células. */
+.win-effects{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:visible}
+.win-star{position:absolute;width:3.6cqw;height:3.6cqw;background:linear-gradient(135deg,#fffbe5 12%,#ffe896 40%,#e7a32e 80%);clip-path:polygon(50% 0,62% 34%,98% 35%,70% 57%,80% 94%,50% 72%,20% 94%,30% 57%,2% 35%,38% 34%);will-change:transform,opacity}
+.grid.has-match .cell.highlight{animation:winning-glow calc(620ms * var(--motion-speed,1)) ease-in-out 2}
+@keyframes winning-glow{0%,100%{box-shadow:inset 0 0 0 1px #fff9e2,0 0 8px #f8bf5277}50%{box-shadow:inset 0 0 14px #ffe6a6,0 0 16px #ffd36ecc}}
+@media(prefers-reduced-motion:reduce){.win-effects{display:none}.game.celebrating>.chef,.grid.has-match .cell.highlight{animation:none}}
+
+/* Peças elevadas sobre cavidades rasas, com folga para o pulso vencedor.
+   Posicionamento absoluto evita que o tamanho intrínseco das artes expanda a célula.
+   Recorte só no tabuleiro: a queda continua atravessando as linhas da coluna. */
+.board-frame{filter:drop-shadow(0 1.2cqw 1cqw #351b0c70) drop-shadow(0 .3cqw .2cqw #351b0c55)}
+.grid{box-shadow:inset 0 .6cqw 1cqw #49250e44,inset 0 -.2cqw .4cqw #fff2cd66}
+.grid .cell{border:2px solid #ac815b55;background:linear-gradient(145deg,#6b391216,#ffedc323 60%,#fff2d637);box-shadow:inset 0 .35cqw .65cqw #512b1533,inset 0 -.2cqw .3cqw #fff5d780}
+.grid .cell img{position:absolute;inset:10%;width:80%;height:80%;max-width:80%;max-height:80%;object-fit:contain;transform-origin:center;filter:drop-shadow(.2cqw .65cqw .35cqw #44210f70) drop-shadow(0 .14cqw .1cqw #391c0f55)}
+.grid.has-match .cell.highlight img{transform:scale(1.04);filter:drop-shadow(.25cqw .85cqw .45cqw #44210f80) drop-shadow(0 0 .45cqw #ffc95688)}
+.round-tools{box-shadow:inset 0 1px 0 #fff8e8,0 .45cqw 0 #9b754b,0 1cqw 1.2cqw #38200d44}
+.bet,.controls .turbo{box-shadow:inset 0 1px 0 #fff9eb,0 .55cqw 0 #997148,0 1cqw 1.2cqw #38200d44}
+.spin{filter:drop-shadow(0 .65cqw .3cqw #3a1d0b66)}

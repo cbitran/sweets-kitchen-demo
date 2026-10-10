@@ -1,0 +1,32 @@
+/* Dedicated prize panel. Frame and scroll viewport are separate elements. */
+#prizes{width:min(94vw,510px);padding:55px 22px 24px;overflow:visible;max-height:calc(100dvh - 130px);margin:auto}
+#prizes .prize-logo{position:absolute;left:50%;top:-72px;transform:translateX(-50%);width:200px;height:134px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 3px 2px #56301755)}
+#prizes .close{z-index:3}
+#prizes .prize-heading{text-align:center;padding:8px 0 18px}
+#prizes .prize-heading h1{font-size:28px;line-height:1.08;margin:6px 0 2px;padding:0}
+#prizes h1::after{display:none}
+#prizes .prize-heading p{font-size:12px;line-height:1.25;margin:0}
+#prizes .prize-table-frame{position:relative;padding:13px;border:1px solid #885025;border-radius:19px;background:linear-gradient(115deg,#b5793b,#ecc789 18%,#c58b48 50%,#efd29a 82%,#a66c34);box-shadow:inset 0 0 0 2px #f9deb0,inset 0 0 0 4px #a97036,inset 0 -5px 5px #66371955,0 3px 0 #7b4c28,0 6px 9px #66432133}
+#prizes .prize-table-wrap{max-height:min(390px,calc(100dvh - 345px));overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#aa7844 #e5c99b;border:1px solid #9f713e;border-radius:8px;padding:0 6px;background:linear-gradient(105deg,#ecd4aa,#f5e3bf 45%,#ead0a3);box-shadow:inset 0 2px 5px #69422035}
+#prizes .prize-table-wrap:focus-visible{outline:2px solid #78502b;outline-offset:3px}
+#prizes .prize-table{width:100%;table-layout:fixed;border-collapse:collapse;border-spacing:0;text-align:center;font-variant-numeric:tabular-nums}
+#prizes .prize-table caption{padding:12px 0 9px;font-size:11px;font-weight:800;color:#79532e}
+#prizes .prize-table thead{position:sticky;top:0;z-index:1;background:#e8cb9d}
+#prizes .prize-table thead th{height:34px;padding:8px 0;border:0;border-bottom:2px solid #b58d57;box-shadow:none;font-size:12px;font-weight:900;color:#603e23;text-shadow:0 1px #fce9c7}
+#prizes .prize-table th:first-child{width:24%}
+#prizes .prize-table tbody th,#prizes .prize-table tbody td{height:75px;padding:5px 0;border:0;border-bottom:1px solid #ba956352;border-radius:0;background:none;box-shadow:none;text-shadow:none;line-height:1.2}
+#prizes .prize-table tbody tr:nth-child(even){background:#bb8b4530}
+#prizes .prize-table tbody tr:last-child>*{border-bottom:0}
+#prizes .prize-table tbody th img{display:block;width:48px;height:48px;max-width:100%;object-fit:contain;margin:auto;filter:drop-shadow(0 3px 1.5px #70431b44)}
+#prizes .prize-table tbody th span{display:block;font-size:10px;font-weight:800;color:#684124}
+#prizes .prize-table tbody td{font-size:17px;color:#80562e}
+#prizes .prize-note{border:0;border-radius:0;background:none;box-shadow:none;margin:16px 2px 0;padding:0;font-size:12px;line-height:1.5;color:#785839}
+/* Fixed-size corner engraving never stretches with the panel height. */
+#prizes .frame-corner{position:absolute;width:17px;height:17px;z-index:2;pointer-events:none;border:2px solid #7c4a23;border-right:0;border-bottom:0;border-radius:9px 0 0 0;box-shadow:-1px -1px 0 #fff0be}
+#prizes .frame-corner::after{content:"";position:absolute;left:3px;top:3px;width:5px;height:5px;border:1px solid #b57a39;border-radius:50%;background:#f2d395}
+#prizes .corner-tl{top:5px;left:5px}
+#prizes .corner-tr{top:5px;right:5px;transform:rotate(90deg)}
+#prizes .corner-br{bottom:5px;right:5px;transform:rotate(180deg)}
+#prizes .corner-bl{bottom:5px;left:5px;transform:rotate(270deg)}
+@media(max-width:360px){#prizes{padding-inline:12px}#prizes .prize-table-frame{padding:10px}#prizes .prize-table thead th{font-size:10px}}
+@media(max-height:560px){#prizes{padding-top:30px;max-height:calc(100dvh - 75px)}#prizes .prize-logo{width:150px;height:100px;top:-62px}#prizes .prize-heading{padding-bottom:10px}#prizes .prize-table-wrap{max-height:calc(100dvh - 260px)}}

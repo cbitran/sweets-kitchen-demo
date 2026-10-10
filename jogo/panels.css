@@ -1,0 +1,57 @@
+/* Sweets Kitchen — esmaltado, latão e madeira com luz vinda do alto à esquerda. */
+.game{--panel-ink:#553021;--panel-rim:#a46c2d;--panel-light:#fff4d7}
+.hud{height:5.8%;align-items:center;gap:2.4%;top:3.4%}
+.hud .balance{position:relative;width:36%;height:100%;gap:7%;padding:1% 5% 1% 2%;border:3px solid #a97639;border-radius:1.7cqw 1.7cqw 3.2cqw 3.2cqw;color:var(--panel-ink);background:radial-gradient(ellipse at 25% 0%,#fffbed 0%,transparent 65%),linear-gradient(110deg,#e8c78d,#fff1cf 37%,#e8c68d);box-shadow:inset 0 0 0 1px #fff4cc,inset 0 -3px 4px #a46c2d44,0 .65cqw 0 #70451e,0 1.15cqw 1.3cqw #31180580}
+.hud .balance:before,.hud .balance:after{content:'';position:absolute;top:44%;width:.7cqw;height:.7cqw;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff2b9,#a46e2c 60%,#603611);box-shadow:0 1px 1px #5c351e80}
+.hud .balance:before{left:2%}.hud .balance:after{right:3%}
+.balance img{width:29%;height:90%;filter:drop-shadow(0 .45cqw .25cqw #62370770)}
+.balance>div{min-width:0}.balance small{font-size:2.25cqw;letter-spacing:.06em}.balance strong{display:block;font-size:4.6cqw;font-variant-numeric:tabular-nums;line-height:1.08;text-shadow:0 1px #fff9e3}
+.hud>.icon{width:9.2cqw;height:9.2cqw;min-width:36px;min-height:36px;font-size:4.3cqw;border-radius:27%;color:#634129;background-size:127% 127%;filter:drop-shadow(0 .5cqw .3cqw #2e180b80);text-shadow:0 1px #fff4da}
+.hud>#sound{margin-left:auto}.hud>#menu{margin-left:0}
+.hud>.icon[aria-pressed=true]{color:#225b4b;filter:drop-shadow(0 .5cqw .3cqw #2e180b80) drop-shadow(0 0 .7cqw #ffe39e)}
+.round-tools{gap:2.8%;padding:0 2.2%;border:2px solid #a56c31;border-radius:2.8cqw;color:var(--panel-ink);background:radial-gradient(ellipse at 28% 0%,#fff8decc,transparent 70%),linear-gradient(#f1d6a3,#e1b97b);box-shadow:inset 0 0 0 1px #fff3cf,inset 0 .7cqw 1cqw #fffae68c,inset 0 -.5cqw .6cqw #a0692f50,0 .7cqw 0 #865225,0 1.2cqw 1.2cqw #30160566}
+.fornada{gap:2%;flex:1;min-width:0}.fornada .mixer{width:10cqw;height:11cqw;margin-left:-.6cqw;filter:drop-shadow(0 .6cqw .35cqw #73471866)}.fornada>div{min-width:0;padding-right:2%}.fornada span{font-size:2.6cqw;text-shadow:0 1px #fff5d9;letter-spacing:.025em}
+.progress{height:2.25cqw;min-height:7px;margin-top:.8cqw;padding:2px;background:linear-gradient(#785735,#ac8855);border:1px solid #a9773d;box-shadow:inset 0 2px 3px #3d200c80,0 1px 0 #fff6dccc}
+.progress i{position:relative;background:linear-gradient(#b3e1b4,#59947c 45%,#2e6456 70%,#6d9f7e);box-shadow:inset 0 1px 0 #eeffe0,0 0 5px #f2ec9166;min-width:0}
+.round-tools .multiplier{width:8.8cqw;height:8.8cqw;max-height:90%;padding:0;border:2px solid #b47b36;border-radius:50%;font-size:4cqw;color:#774821;background:radial-gradient(circle at 35% 25%,#fff9dd,#f5d17d 55%,#c48a3c);box-shadow:inset 0 0 0 1px #fff3ba,inset 0 -.5cqw .4cqw #98601c44,0 .35cqw 0 #96602c,0 .6cqw .6cqw #6b391c55;text-shadow:0 1px #fff6cc}
+.prizes{height:67%;min-height:30px;flex-shrink:0;padding:0 2.7%;border:1px solid #8b592e;border-radius:1.8cqw;color:#fff1cc;font-size:2.55cqw;letter-spacing:.01em;background:linear-gradient(#956940,#77502f 55%,#634022);box-shadow:inset 0 1px 0 #d1a876,inset 0 -1px 0 #4b2b15,0 .4cqw 0 #543219,0 .6cqw .5cqw #69421f55;text-shadow:0 1px 1px #3b2217}
+.controls{gap:4%}.bet{width:65%;padding:1.1cqw;gap:1.2cqw;border:2px solid #9b622c;border-radius:2.8cqw;color:var(--panel-ink);background:radial-gradient(ellipse at 35% 0%,#fff9e6,transparent 75%),linear-gradient(#f4deac,#d9b275);box-shadow:inset 0 0 0 1px #fff2c9,inset 0 -.5cqw .65cqw #95642c50,0 .7cqw 0 #835021,0 1.2cqw 1.3cqw #361c0d66}
+.bet>div{flex:1;align-self:stretch;display:flex;flex-direction:column;justify-content:center;min-width:0;background:linear-gradient(#f6e6c4,#fff5de);border:1px solid #b7945d;border-radius:1.7cqw;box-shadow:inset 0 .3cqw .5cqw #8b5f3033,0 1px 0 #fff1c5}
+.controls small{font-size:2.5cqw;line-height:1.2}.bet output{font:700 5.2cqw/1.05 Fredoka,ui-rounded,sans-serif;text-shadow:0 1px #fff}
+.bet .icon{width:9.4cqw;height:9.4cqw;max-height:100%;border:1px solid #a1682e;border-radius:2.1cqw;font-size:5.4cqw;background:linear-gradient(135deg,#fff3cf,#dfb675 70%,#ca9957);box-shadow:inset 0 1px 0 #fff9e4,inset 0 -2px 2px #b17a3755,0 .4cqw 0 #91602c,0 .7cqw .5cqw #6e441e44;text-shadow:0 1px #fff8e0}
+.bet .icon:disabled{opacity:.52;box-shadow:inset 0 1px 4px #6f421933}
+.controls .turbo{width:31%;gap:7%;padding:0 3%;border:2px solid #9b622c;border-radius:2.8cqw;color:#694629;background:linear-gradient(135deg,#fff3ce,#e2be85);box-shadow:inset 0 0 0 1px #fff3d0,inset 0 -.5cqw .7cqw #9c6b3150,0 .7cqw 0 #835021,0 1.2cqw 1.3cqw #361c0d66}
+.turbo>b{font-size:6.1cqw;text-shadow:0 1px #fff9e3;filter:drop-shadow(0 2px 1px #93602b55)}.turbo span{font-size:2.95cqw;line-height:1.4}.turbo span small{font-size:2.25cqw;opacity:1}
+.controls .turbo[aria-pressed=true]{border-color:#93662f;background:linear-gradient(135deg,#7eb39b,#347060 60%,#275746);color:#fff5d2;box-shadow:inset 0 0 0 1px #c2d29d,inset 0 2px 4px #a2d4b077,0 .7cqw 0 #704c27,0 1.2cqw 1.3cqw #361c0d66}.turbo[aria-pressed=true]>b{text-shadow:0 1px #244a35;color:#ffdf80}
+.game button:focus-visible{outline:3px solid #ffefac;outline-offset:3px;box-shadow:0 0 0 5px #483016}
+/* O menu é uma placa esmaltada em uma moldura de madeira e latão. */
+dialog{border:8px solid #85532b;border-radius:28px;padding:34px 26px 28px;max-height:calc(100dvh - 36px);overflow:auto;color:#563629;background:radial-gradient(ellipse at 20% 0%,#fffbeb,transparent 65%),repeating-linear-gradient(100deg,#b1844610 0 1px,transparent 1px 5px),linear-gradient(#f8e9c8,#ecd1a0);box-shadow:inset 0 0 0 2px #ffe7aa,inset 0 0 0 5px #c2914f,inset 0 0 18px 8px #8e592329,0 0 0 1px #f3cf86,0 6px 0 1px #4e2c18,0 18px 50px #160b08bb}
+dialog::backdrop{background:#201109b8;backdrop-filter:blur(5px)}
+dialog h1{position:relative;font:700 32px/1.15 Fredoka,ui-rounded,sans-serif;margin:14px 36px 26px 0;padding-bottom:16px;color:#6a4226;text-shadow:0 2px #fff6dc}
+dialog h1:after{content:'';position:absolute;left:0;bottom:0;width:76px;height:4px;border-radius:5px;background:linear-gradient(90deg,#a67235,#e4b85a,#b6813d);box-shadow:0 1px 0 #fff7dd}
+dialog .close{top:13px;right:13px;width:40px;height:40px;font-size:27px;filter:drop-shadow(0 3px 2px #7c512466);color:#69432a}
+dialog p{font-size:15px;line-height:1.65}.setting{margin:18px 0;padding:0 0 16px;gap:12px;border-bottom:1px solid #bc945c66;text-shadow:0 1px #fff5dc}
+.toggle{position:relative;min-width:128px;min-height:44px;padding:11px 15px 11px 29px;border:1px solid #a67942;border-radius:13px;color:#62432b;background:linear-gradient(#ead5aa,#cfad75);box-shadow:inset 0 2px 4px #72462033,0 1px 0 #fff6d5;font-size:14px}
+.toggle:before{content:'';position:absolute;left:11px;top:calc(50% - 4px);width:8px;height:8px;border-radius:50%;background:#9c7850;box-shadow:inset 0 1px 2px #46251266,0 1px #fff0ca}
+.toggle[aria-pressed=true]{background:linear-gradient(#558770,#2c5b4a);border-color:#355b40;color:#fff7da;box-shadow:inset 0 1px 0 #a4c299,0 2px 0 #214738}.toggle[aria-pressed=true]:before{background:#f6dc79;box-shadow:0 0 6px #ffe997}
+.paper-button{min-height:48px;margin-top:16px;border:1px solid #976030;border-radius:13px;background:linear-gradient(#ffedbd,#e6bf79 65%,#d3a460);color:#644126;box-shadow:inset 0 1px 0 #fff9e3,inset 0 -2px 2px #a9733533,0 3px 0 #9a6835,0 5px 7px #78482133;text-shadow:0 1px #fff0c7}
+dialog>.paper-button:last-child{margin-top:22px;color:#fff6dd;background:linear-gradient(#739c7d,#3e725b 55%,#305c48);border-color:#355c43;box-shadow:inset 0 1px 0 #c8d4a6,0 3px 0 #294b37,0 5px 7px #4b382c44;text-shadow:0 1px #254934}
+dialog button:focus-visible{outline:3px solid #235443;outline-offset:4px}
+#prizes .payout{border:2px solid #b4894c;background:linear-gradient(#fff4da,#f3dfb4);box-shadow:inset 0 2px 5px #94673733,0 1px #fff8e5;border-radius:14px;padding:8px}#prizes table{font-size:14px}#prizes th{font-size:12px}#prizes td{color:#624127}.prize-note{color:#755339}
+@media(max-width:360px){dialog{padding:26px 18px 23px;border-width:6px}dialog h1{font-size:29px}.toggle{min-width:116px}#prizes .payout{padding:5px}#prizes table{font-size:12px}#prizes th{font-size:10px}}
+/* Quadro de receitas: números encaixados em pequenas cavidades de latão. */
+#prizes .payout{padding:8px 6px 10px;border:3px solid #9e6b32;border-radius:17px;background:repeating-linear-gradient(95deg,#90612c09 0 2px,transparent 2px 7px),linear-gradient(135deg,#f2d9a5,#cea266);box-shadow:inset 0 0 0 1px #fff0c0,inset 0 3px 6px #73431744,0 3px 0 #86552b,0 6px 9px #79502c33}
+#prizes table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:3px 5px;font-variant-numeric:tabular-nums}
+#prizes thead th{height:32px;padding:4px 0 7px;color:#694423;font-weight:900;text-shadow:0 1px #fff2cc;border-bottom:2px solid #a8793d;box-shadow:0 1px 0 #ffeabd}
+#prizes thead th:first-child{width:18%;font-size:11px}
+#prizes tbody td{height:40px;padding:6px 1px;border:1px solid #b08a51;border-radius:6px;color:#6b4528;background:linear-gradient(#dfc595,#fff1cc 70%,#f5ddb0);box-shadow:inset 0 2px 3px #89603033,0 1px 0 #fff0c5;text-shadow:0 1px #fff6dc;line-height:1.15}
+#prizes tbody th{height:40px;padding:1px;background:radial-gradient(ellipse at center,#fff5dca8,transparent 75%);border:0}
+#prizes tbody th img{width:40px;height:36px;max-width:100%;margin:auto;object-fit:contain;filter:drop-shadow(0 3px 2px #623a2355)}
+#prizes tbody tr+tr{border:0}
+#prizes .prize-note{padding:10px 13px;border-left:3px solid #af803f;border-radius:3px 9px 9px 3px;background:#fff1d155;box-shadow:inset 0 1px 0 #fff8e388;font-size:12px}
+/* Evita comprimir os dois textos da placa em telas estreitas. */
+.hud .balance{padding-top:0;padding-bottom:0}
+@media(max-width:360px){#prizes .payout{padding:6px 3px 8px}#prizes table{border-spacing:2px 4px}#prizes thead th:first-child{font-size:9px}#prizes tbody td{font-size:12px;height:36px}#prizes tbody th{height:36px}#prizes tbody th img{height:31px}}
+/* Comando de velocidade em medalhão, com gravação dupla no latão. */
+.turbo>b{display:grid;place-items:center;flex:0 0 6.2cqw;width:6.2cqw;height:6.2cqw;border:1px solid #ac7b37;border-radius:50%;background:radial-gradient(circle at 30% 20%,#fff1b7,#dfb45e 65%,#b97f35);box-shadow:inset 0 0 0 1px #ffe9a4,0 .35cqw .25cqw #7d501e55;filter:none;color:#805123;font:800 5cqw/1 Nunito,system-ui,sans-serif;text-shadow:0 1px #fff2c1;padding-bottom:.5cqw}
+.turbo[aria-pressed=true]>b{color:#fff5c3;border-color:#d8ba6a;background:radial-gradient(circle at 30% 20%,#e5ca6a,#af772e 72%);text-shadow:0 1px #6d491b;box-shadow:inset 0 0 0 1px #ffe8ab,0 0 1.2cqw #ffe69855}

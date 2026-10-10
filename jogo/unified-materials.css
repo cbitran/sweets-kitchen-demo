@@ -1,0 +1,322 @@
+/* Uma família de molduras: placa ornamental pintada + comandos de madeira pintada. */
+.game{--ornate-plate:url('../assets/painted-environment/etiqueta_base.png');--painted-key:url('../assets/painterly-final/icone_base.png')}
+.hud .balance,.round-tools,.bet,.controls .turbo,.controls .turbo[aria-pressed=true]{border:0;border-radius:0;background:var(--ornate-plate) center/104% 214% no-repeat;box-shadow:none;filter:drop-shadow(0 .5cqw .3cqw #49240966)}
+.hud .balance{width:38%;padding:0 5%;gap:5%}.hud .balance:before,.hud .balance:after{content:none}
+.round-tools{padding:0 6%;gap:3%}.fornada .mixer{display:none}.fornada>div{width:100%;padding:0}.fornada span{font-size:2.7cqw}
+.bet{padding:1cqw 4cqw;gap:1cqw}.controls .turbo{color:#553021;padding:0 2%;gap:5%}.controls .turbo[aria-pressed=true]{color:#255b48}
+.hud>.icon,.bet .icon,.round-tools .multiplier,.prizes,.turbo>b{border:0;background:var(--painted-key) center/127% 127% no-repeat;box-shadow:none;border-radius:0;filter:drop-shadow(0 .3cqw .2cqw #49240966);color:#553021;text-shadow:0 1px #fff4dc}
+.hud>.icon{padding:0;line-height:1;display:grid;place-items:center}
+.menu-bars{display:flex;width:36%;height:30%;flex-direction:column;justify-content:space-between;pointer-events:none}.menu-bars i{height:2px;width:100%;border-radius:2px;background:#68402b;box-shadow:0 1px #fff4dc}
+.prizes{height:70%;padding:0 3%;font-size:2.6cqw;background-image:var(--ornate-plate);background-size:107% 220%}
+.round-tools .multiplier{font-size:3.7cqw;width:8cqw;height:8cqw}
+.turbo>b,.turbo[aria-pressed=true]>b{background:none;border:0;box-shadow:none;filter:none;font-size:5cqw;width:4cqw;flex-basis:4cqw;height:6cqw;padding:0;color:inherit}
+/* Mesmos materiais nos modais e em seus botões. */
+dialog{border-color:#ad783f;background:radial-gradient(ellipse at 25% 0%,#fff8e6,transparent 70%),linear-gradient(#fff0d1,#eed5a9);box-shadow:inset 0 0 0 2px #fff2c7,inset 0 0 0 5px #cda16b,inset 0 0 14px 8px #7b491b22,0 0 0 2px #e4ba78,0 6px 0 #76502a,0 18px 50px #160b08bb}
+dialog .paper-button,dialog>.paper-button:last-child{border:0;border-radius:0;background:url('../assets/painted-environment/etiqueta_base.png') center/104% 214% no-repeat;color:#553021;box-shadow:none;filter:drop-shadow(0 3px 2px #78482144);text-shadow:0 1px #fff5d9;min-height:56px}
+
+/* Aposta sem o mostrador antigo sobre a placa pintada. */
+.bet>div{background:none;border:0;border-radius:0;box-shadow:none}
+/* Turbo em três partes: centro flexível e extremidades na proporção da arte. */
+.controls .turbo,.controls .turbo[aria-pressed=true]{position:relative;isolation:isolate;background:none}
+.controls .turbo .turbo-frame{position:absolute;inset:0;display:block;z-index:-1;pointer-events:none;font-size:0;line-height:0}
+.turbo-frame:before,.turbo-frame:after{content:'';position:absolute;top:0;bottom:0;width:38%;background:var(--ornate-plate) left center/auto 214% no-repeat}
+.turbo-frame:before{left:0}.turbo-frame:after{right:0;background-position:right center}
+.turbo-frame>i{position:absolute;inset:0 30%;background:var(--ornate-plate) center/1000% 214% no-repeat}
+.turbo>b,.turbo[aria-pressed=true]>b{width:5cqw;flex-basis:5cqw;height:5cqw;filter:drop-shadow(0 .3cqw .15cqw #6b3a2466)}
+.turbo>b svg{display:block;width:100%;height:100%;overflow:visible}
+.turbo[aria-pressed=true]>b{filter:drop-shadow(0 .2cqw .12cqw #6b3a2444) drop-shadow(0 0 .5cqw #ffe6a3)}
+
+/* Conteúdo dimensionado pela área útil, longe dos ornamentos. */
+.controls{gap:4%}.controls .bet{width:61%;padding:1.8cqw 4.5cqw;gap:1.5cqw}
+.bet .icon{width:7.2cqw;height:7.2cqw;flex:0 0 7.2cqw;font-size:4.4cqw;background-size:122% 122%;padding:0;box-shadow:none}
+.bet>div{align-self:center}.bet small{line-height:1.2}.bet output{font-size:4.8cqw;line-height:1.15}
+.controls .turbo{width:35%;padding:1.8cqw 3.5cqw;gap:1cqw;justify-content:center}
+.controls .turbo>b{width:6cqw;height:6cqw;flex:0 0 6cqw;filter:drop-shadow(0 .2cqw .12cqw #6b3a2444)}
+.turbo>b img{display:block;width:100%;height:100%;object-fit:contain}
+.controls .turbo>span:not(.turbo-frame){flex:0 0 auto;min-width:10.5cqw;white-space:nowrap;font-size:2.8cqw;line-height:1.35;text-align:left}
+.controls .turbo #turbo-status{display:block;white-space:nowrap;font-size:2.25cqw;line-height:1.4;letter-spacing:0;margin:0}
+.round-tools{padding:1.7cqw 7cqw;gap:2.5cqw;align-items:center}
+.fornada{height:auto;align-items:center}.fornada>div{display:flex;flex-direction:column;gap:.8cqw}
+.fornada span{font-size:2.7cqw;line-height:1.2;white-space:nowrap}
+.fornada .progress{margin:0;height:1.5cqw;min-height:0;padding:1px;flex-shrink:0}
+.round-tools .multiplier{width:7cqw;height:7cqw;flex:0 0 7cqw;font-size:3.2cqw}
+.round-tools .prizes{height:7cqw;min-height:0;padding:0 2.5cqw;font-size:2.5cqw}
+/* Prêmios usa a mesma peça pintada do ×1, com cantos em escala fixa. */
+.round-tools .prizes{position:relative;isolation:isolate;min-width:14cqw;height:7cqw;padding:0 2cqw;background:none;border:0;box-shadow:none;white-space:nowrap;display:grid;place-items:center;color:#553021}
+.round-tools .prizes:before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;background:var(--painted-key) left center/8.89cqw 127% no-repeat,var(--painted-key) right center/8.89cqw 127% no-repeat}
+.round-tools .prizes:after{content:'';position:absolute;inset:0 3.5cqw;z-index:-1;pointer-events:none;background:var(--painted-key) center/800% 127% no-repeat}
+
+/* Moeda saliente e saldo em uma única linha. */
+.hud .balance{width:37%;padding:0 3.5cqw 0 8cqw;overflow:visible}
+.hud .balance img{position:absolute;left:-2cqw;top:50%;transform:translateY(-50%) rotate(-8deg);width:11cqw;height:11cqw;object-fit:contain;filter:drop-shadow(.2cqw .6cqw .3cqw #62370780)}
+.hud .balance>div{display:flex;align-items:center;gap:1.6cqw;min-width:0;overflow:hidden}
+.hud .balance small{flex:none;font-size:2.5cqw;line-height:1;text-transform:none;letter-spacing:0}
+.hud .balance strong{font-size:4.3cqw;line-height:1.2;min-width:0}
+
+/* Pequeno conjunto de moedas cunhadas, separado da área de leitura. */
+.hud .balance{padding-left:11cqw}
+.balance-coins{position:absolute;left:-.6cqw;top:50%;width:10cqw;height:9cqw;transform:translateY(-50%);pointer-events:none}
+.hud .balance .balance-coins img{top:auto;left:auto;object-fit:contain;filter:drop-shadow(.1cqw .25cqw .15cqw #59320b80)}
+.hud .balance .balance-coins img:nth-child(1){width:5.2cqw;height:5.2cqw;left:0;top:.1cqw;transform:rotate(-18deg)}
+.hud .balance .balance-coins img:nth-child(2){width:5.8cqw;height:5.8cqw;left:.2cqw;bottom:0;transform:rotate(14deg)}
+.hud .balance .balance-coins img:nth-child(3){width:7.5cqw;height:7.5cqw;right:0;top:.6cqw;transform:rotate(-6deg)}
+.hud .balance>div{gap:1.8cqw}
+/* Cardápio: pequenas composições dos doces, com leitura preservada. */
+#settings .menu-heading{position:relative;min-height:118px;padding:8px 100px 8px 0;margin-bottom:12px}
+.menu-heading>small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#876039}
+#settings .menu-heading h1{font-size:28px;line-height:1.1;margin:9px 0 0;padding-bottom:15px;max-width:180px}
+.menu-sweets{position:absolute;right:0;bottom:5px;width:110px;height:88px;pointer-events:none}
+.menu-sweets img{position:absolute;object-fit:contain;filter:drop-shadow(0 4px 2px #70411b44)}
+.menu-sweets img:nth-child(1){width:62px;height:62px;left:0;bottom:0;transform:rotate(-17deg)}
+.menu-sweets img:nth-child(2){width:75px;height:75px;right:2px;top:0;transform:rotate(8deg)}
+.menu-sweets img:nth-child(3){width:43px;height:43px;right:0;bottom:-2px;transform:rotate(-9deg)}
+#settings .close{z-index:3}
+#settings .setting{margin:14px 0;padding-bottom:14px}
+.menu-divider{display:flex;align-items:center;justify-content:center;gap:12px;height:35px;margin:3px 0 0;pointer-events:none}
+.menu-divider img{width:34px;height:34px;object-fit:contain;transform:rotate(-12deg);filter:drop-shadow(0 2px 1px #70411b33)}
+.menu-divider span{height:1px;width:25%;background:linear-gradient(90deg,transparent,#bb8b49)}
+.menu-divider span:last-child{transform:rotate(180deg)}
+#settings>.paper-button{margin-top:12px}
+/* Som sem placa amarela. O indicador reage ao áudio efetivamente emitido. */
+.hud>#sound,.hud>#sound[aria-pressed=true]{background:none;border:0;box-shadow:none;filter:none;color:#f7d994;text-shadow:0 1px 0 #87582d,0 2px 3px #301b0ddd}
+.sound-note{font-size:6cqw;line-height:1}
+.hud>#sound[aria-pressed=true]{color:#b9dbc0}
+.sound-bars{position:absolute;bottom:0;left:30%;right:30%;height:2cqw;display:flex;align-items:end;gap:.45cqw;opacity:.5}
+.sound-bars i{display:block;flex:1;height:100%;background:currentColor;border-radius:2px;transform:scaleY(.25);transform-origin:bottom}
+.hud>#sound[aria-pressed=false] .sound-bars{visibility:visible}
+/* Uma apresentação breve do controle de velocidade, sem repetição insistente. */
+.game[data-boot=ready] #turbo[aria-pressed=false]>b{animation:turbo-intro 900ms ease-in-out 1.2s 1}
+@keyframes turbo-intro{0%,100%{transform:translateX(0)}30%{transform:translateX(2px)}65%{transform:translateX(-1px)}}
+@media(prefers-reduced-motion:reduce){.game[data-boot=ready] #turbo>b{animation:none}}
+@media(max-width:360px){#settings .menu-heading{padding-right:90px;min-height:105px}#settings .menu-heading h1{font-size:25px}.menu-sweets{width:95px;transform:scale(.9);transform-origin:right bottom}}
+
+/* Agrupa multiplicador e Prêmios, preservando a margem do ornamento. */
+.round-tools{gap:1.2cqw;padding-right:8.5cqw}
+.round-tools .fornada{margin-right:1.3cqw}
+/* Duas faces do Turbo: moldura preservada, interior esmaltado ao ativar. */
+.controls .turbo>b{position:relative}
+.turbo>b .turbo-on-art{display:none}
+.turbo[aria-pressed=true]>b .turbo-off-art{display:none}
+.turbo[aria-pressed=true]>b .turbo-on-art{display:block}
+.controls .turbo[aria-pressed=true]{color:#234b37;text-shadow:0 1px #fff8e6}
+.controls .turbo:after{content:none;display:none}
+.controls .turbo[aria-pressed=true]:after{content:none;display:none}
+.controls .turbo[aria-pressed=true] #turbo-status{color:#234b37;font-weight:900;opacity:1}
+/* Interruptores do cardápio: estado legível e peça pintada em vez de cápsula. */
+#settings .toggle,#settings .toggle[aria-pressed=true]{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-width:145px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:#62432b;text-shadow:0 1px #fff9e3}
+#settings .toggle:before{content:none}
+.setting-state{font-size:13px;white-space:nowrap}
+.setting-chevron{position:relative;display:grid;place-items:center;width:46px;height:46px;flex:0 0 46px;background:url('../assets/painterly-final/icone_base.png') center/127% 127% no-repeat;filter:drop-shadow(0 2px 1px #71451f55);transition:transform .35s ease}
+.setting-chevron img{width:32px;height:32px;object-fit:contain}
+.setting-chevron img:last-child{display:none}
+.toggle[aria-pressed=true] .setting-chevron{transform:rotate(-8deg)}
+.toggle[aria-pressed=true] .setting-chevron img:first-child{display:none}
+.toggle[aria-pressed=true] .setting-chevron img:last-child{display:block}
+#settings .toggle[aria-pressed=true] .setting-state{color:#285e49;font-weight:900}
+@media(prefers-reduced-motion:reduce){.setting-chevron{transition:none}}
+/* Contraste do áudio sobre o cenário, sem a antiga placa clara. */
+.hud>#sound,.hud>#sound[aria-pressed=true]{width:8.8cqw;height:8.8cqw;border:1px solid #c99d58;border-radius:50%;background:radial-gradient(circle at 32% 25%,#76522fe8,#3b281beF 70%);box-shadow:inset 0 1px 1px #efc98299,inset 0 -2px 2px #1e120d88,0 .4cqw .6cqw #21140ba6;color:#fff0c8;text-shadow:0 2px 1px #281609;filter:none}
+.hud>#sound .sound-note{font-size:5.7cqw;transform:translateY(-.35cqw)}
+.hud>#sound[aria-pressed=true]{color:#d0f4d8;border-color:#c1c58d}
+.hud>#sound .sound-bars{bottom:1.2cqw;height:1.3cqw;opacity:1}
+
+/* Sliding switches: cream handle, recessed caramel/emerald track. */
+.setting-switch{position:relative;width:58px;height:30px;flex:0 0 58px;border:2px solid #a6753c;border-radius:16px;background:linear-gradient(#a08059,#b5976b);box-shadow:inset 0 2px 4px #4b2e2355,0 1px #fff8dc;transition:background .25s}
+.setting-switch i{position:absolute;left:2px;top:2px;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#fffdf0,#f0d7a8 75%,#c38d48);box-shadow:0 2px 3px #4b2b2266,inset 0 1px 1px #fff;transition:transform .3s ease}
+.toggle[aria-pressed=true] .setting-switch{background:linear-gradient(#386a51,#548569);border-color:#6d7b46}
+.toggle[aria-pressed=true] .setting-switch i{transform:translateX(28px)}
+/* A single shelf line and grounded silhouettes replace floating decoration. */
+.menu-sweets{width:120px;height:90px;bottom:8px;border-bottom:3px solid #bc8a4b;border-radius:0 0 40% 40%;box-shadow:0 3px 2px -1px #78533244}
+.menu-sweets::before{content:"";position:absolute;left:5%;right:0;bottom:0;height:9px;border-radius:50%;background:radial-gradient(ellipse,#75442155,transparent 70%)}
+.menu-sweets img{top:auto!important;bottom:-4px!important;transform:none!important;filter:drop-shadow(0 2px 1px #70411b44)}
+.menu-sweets img:nth-child(1){width:60px;height:60px;left:-5px;right:auto}
+.menu-sweets img:nth-child(2){width:72px;height:72px;left:35px;right:auto}
+.menu-sweets img:nth-child(3){width:42px;height:42px;left:auto;right:-5px}
+/* VU occupies the same painted square as the menu control. */
+.hud>#sound,.hud>#sound[aria-pressed=true]{width:8.8cqw;height:8.8cqw;border:0;border-radius:20%;background:url('../assets/painterly-final/icone_base.png') center/127% 127% no-repeat;box-shadow:none;filter:drop-shadow(0 2px 1px #3b201855);color:#30634f;text-shadow:none}
+.hud>#sound .sound-bars{position:absolute;inset:24% 20%;height:4.5cqw;display:flex;gap:.42cqw;align-items:flex-end;opacity:1;visibility:visible}
+.hud>#sound .sound-bars i{height:100%;min-width:0;border-radius:2px;background:repeating-linear-gradient(to top,#367354 0 3px,#fff0cb 3px 4px);transform:scaleY(.28);transform-origin:bottom;box-shadow:inset 1px 0 #d6c87788}
+.hud>#sound[aria-pressed=false] .sound-bars i{background:repeating-linear-gradient(to top,#967a50 0 3px,#fff0cb 3px 4px)}
+@media(prefers-reduced-motion:reduce){.setting-switch,.setting-switch i{transition:none}}
+
+/* Contact shadow only: no drawn shelf or oval rim below the sweets. */
+.menu-sweets{border:0;box-shadow:none;border-radius:0}
+.menu-sweets::before{left:3%;right:0;bottom:-1px;height:10px;border-radius:50%;background:radial-gradient(ellipse at center,#67402355 0%,#78522e26 40%,transparent 72%);filter:blur(2px)}
+.menu-sweets img{filter:drop-shadow(0 2px 1.5px #67412240)}
+/* Sound-enabled indicator, decorative rather than an audio measurement. */
+.hud>#sound[aria-pressed=true] .sound-bars i{animation:vu-bounce 930ms ease-in-out infinite}
+.hud>#sound[aria-pressed=true] .sound-bars i:nth-child(2){animation-duration:710ms;animation-delay:-250ms}
+.hud>#sound[aria-pressed=true] .sound-bars i:nth-child(3){animation-duration:1130ms;animation-delay:-650ms}
+.hud>#sound[aria-pressed=true] .sound-bars i:nth-child(4){animation-duration:830ms;animation-delay:-420ms}
+.hud>#sound[aria-pressed=true] .sound-bars i:nth-child(5){animation-duration:1010ms;animation-delay:-170ms}
+@keyframes vu-bounce{0%,100%{transform:scaleY(.28)}20%{transform:scaleY(.8)}42%{transform:scaleY(.45)}65%{transform:scaleY(1)}82%{transform:scaleY(.6)}}
+@media(prefers-reduced-motion:reduce){.hud>#sound[aria-pressed=true] .sound-bars i{animation:none;transform:scaleY(.65)}.hud>#sound[aria-pressed=true] .sound-bars i:nth-child(even){transform:scaleY(.9)}}
+
+/* Four bars now follow the soundtrack analyser. */
+.hud>#sound[aria-pressed=true] .sound-bars i{animation:none}
+
+.hud>#sound .sound-bars i{background:repeating-linear-gradient(to top,#795030 0 3px,#fff0cb 3px 4px);box-shadow:inset 1px 0 #b58b5388}
+#invite .invite-heading small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#89603a}
+#invite h1{font-size:28px;margin-bottom:16px}
+#invite-form{display:grid;gap:10px}
+#invite-form label{font-size:14px;font-weight:800;color:#664329}
+#invite-form input,#invite-form select{width:100%;min-height:46px;border:1px solid #b08852;border-radius:10px;padding:11px 13px;background:#fff9e9;color:#553823;font:inherit;box-shadow:inset 0 2px 4px #80562d18}
+#invite-form input:focus,#invite-form select:focus{outline:2px solid #906331;outline-offset:2px}
+#invite .invite-note,#invite-status{font-size:12px;line-height:1.5;margin:4px 0;color:#785a3e}
+#invite-status:empty{display:none}
+
+/* Invitation uses the same centered, overhanging brand as the prize panel. */
+#invite{overflow:visible;padding:58px 24px 24px;max-height:calc(100dvh - 110px)}
+#invite .invite-logo{position:absolute;left:50%;top:-70px;transform:translateX(-50%);width:200px;height:134px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 3px 2px #56301755)}
+#invite .close{z-index:2}
+#invite .invite-content{max-height:calc(100dvh - 220px);overflow-y:auto;padding:4px 5px 5px;scrollbar-width:thin;scrollbar-color:#ad7b3e #f5e6c9}
+#invite .invite-heading{text-align:center}
+#invite .invite-heading h1{font-size:27px;margin:10px 0 12px;padding:0}
+#invite .invite-heading h1:after{display:none}
+#invite .invite-heading p{font-size:14px;line-height:1.5;margin:0 0 22px}
+#invite-form{gap:11px}
+#invite-form input,#invite-form select{min-height:50px;border:1px solid #b58c56;border-radius:12px;padding:13px 16px;background:linear-gradient(#fffdf3,#fff4dc);box-shadow:inset 0 2px 4px #80562d16,0 1px 0 #fff9e8;color:#5c3c27}
+#invite-form input::placeholder{color:#967b60;opacity:1}
+#invite-form label:not(:first-child){margin-top:5px}
+.invite-select{position:relative}
+#invite-form select{appearance:none;-webkit-appearance:none;padding-right:48px}
+.invite-select>span{position:absolute;right:20px;top:50%;width:9px;height:9px;border-right:2px solid #85562f;border-bottom:2px solid #85562f;transform:translateY(-70%) rotate(45deg);pointer-events:none;border-radius:1px}
+#invite-form .paper-button{width:100%;margin-top:12px}
+#invite .invite-note{margin-top:8px;line-height:1.5}
+@media(max-height:560px){#invite{padding-top:32px;max-height:calc(100dvh - 70px)}#invite .invite-logo{width:150px;height:100px;top:-62px}#invite .invite-content{max-height:calc(100dvh - 145px)}}
+
+/* Active turbo: compact label and a running chevron, with a warm glint. */
+.controls .turbo>span:not(.turbo-frame){line-height:1.08;letter-spacing:0;min-width:0}
+.controls .turbo #turbo-status{line-height:1.1;margin-top:.35cqw;letter-spacing:0;font-size:2.15cqw}
+.controls .turbo[aria-pressed=true]>b{animation:turbo-running 1.6s ease-in-out infinite}
+@keyframes turbo-running{0%,100%{transform:translateX(-1px) scale(.98)}40%{transform:translateX(3px) scale(1.08)}65%{transform:translateX(1px) scale(1.02)}}
+.controls .turbo[aria-pressed=true] .turbo-frame{filter:drop-shadow(0 0 2px #e4b966);animation:turbo-frame-light 3s ease-in-out infinite}
+@keyframes turbo-frame-light{0%,100%{filter:drop-shadow(0 0 1px #b9823866)}50%{filter:drop-shadow(0 0 5px #e4b966bb)}}
+@media(prefers-reduced-motion:reduce){.controls .turbo[aria-pressed=true]>b,.controls .turbo[aria-pressed=true] .turbo-frame{animation:none}}
+
+/* Winnings occupy the lower right; speed moves beside the glass jar. */
+.winnings-panel{position:relative;isolation:isolate;width:35%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#593820;filter:drop-shadow(0 .4cqw .3cqw #49240955)}
+.winnings-panel:before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ornate-plate) center/104% 214% no-repeat}
+.winnings-panel>small{font-size:2.6cqw;font-weight:800;line-height:1.1}
+.winnings-panel>output{font:700 4.8cqw/1.1 Fredoka,ui-rounded,sans-serif;font-variant-numeric:tabular-nums;max-width:90%;overflow:hidden;text-overflow:ellipsis}
+.winnings-panel>span{font-size:1.7cqw;font-weight:700;line-height:1.2;white-space:nowrap}
+.game>.controls.scene-turbo{top:28.2%;left:77%;right:auto;width:21%;height:4.7%;z-index:8;gap:0}
+.controls.scene-turbo .turbo{width:100%;height:100%;padding:.5cqw 2cqw;gap:.35cqw}
+.controls.scene-turbo .turbo>b{width:4.4cqw;height:4.4cqw;flex-basis:4.4cqw}
+.controls.scene-turbo .turbo>span:not(.turbo-frame){font-size:2.3cqw;min-width:0;line-height:1.05}
+.controls.scene-turbo .turbo #turbo-status{font-size:1.7cqw;margin-top:.2cqw}
+
+/* Shared painted caps retain natural aspect ratio; only the plain center grows. */
+.game>.round-tools,.controls .bet,.winnings-panel{isolation:isolate;background:none}
+.controls .bet{position:relative}
+.winnings-panel:before{content:none}
+.material-frame{position:absolute!important;inset:0;display:block;z-index:-1;pointer-events:none;line-height:0!important}
+.material-frame:before,.material-frame:after{content:"";position:absolute;top:0;bottom:0;width:7cqw;background:var(--ornate-plate) left center/auto 214% no-repeat}
+.material-frame:before{left:0}.material-frame:after{right:0;background-position:right center}
+.material-frame>i{position:absolute;inset:0 6.8cqw;background:var(--ornate-plate) center/1000% 214% no-repeat}
+.game>.round-tools{top:74%;height:5.8%;padding:1.2cqw 6.5cqw;gap:1.2cqw}
+.game>.controls:not(.scene-turbo){top:80.6%;height:7.2%;gap:3%}
+.controls .bet{width:55%;padding:1.5cqw 4cqw}
+.winnings-panel{width:42%;gap:.25cqw;padding:1.25cqw 3.8cqw}
+.winnings-panel>output{font-size:4.5cqw;line-height:1.05;display:flex;align-items:center;justify-content:center}
+.winnings-panel>span:not(.material-frame){font-size:1.7cqw;line-height:1.2;margin-top:.3cqw;max-width:100%}
+.game>.controls.scene-turbo{top:69.2%;left:37%;width:26%;height:4.4%;z-index:8}
+.controls.scene-turbo .turbo{padding:.5cqw 3cqw;gap:.6cqw}
+.controls.scene-turbo .turbo>span:not(.turbo-frame){font-size:2.4cqw}
+.controls.scene-turbo .turbo #turbo-status{font-size:1.85cqw}
+.hud>#sound .sound-bars i,.hud>#sound[aria-pressed=false] .sound-bars i{background:#795030;box-shadow:inset 1px 0 #b58b5366;border-radius:2px}
+.gain-digit{display:inline-block;height:1em;line-height:1em;overflow:hidden;width:.62em}
+.gain-strip{display:flex;flex-direction:column;line-height:1em}
+.gain-strip>span{display:block;flex:0 0 1em;height:1em;line-height:1em}
+.gain-star{position:absolute;left:50%;top:50%;z-index:2;width:1.7cqw;height:1.7cqw;pointer-events:none;background:radial-gradient(circle,#fff8c9,#f4c56c 60%,#b8792e);clip-path:polygon(50% 0,62% 36%,100% 50%,62% 63%,50% 100%,37% 63%,0 50%,37% 36%)}
+
+.controls .bet>div{min-width:0;flex:1;text-align:center}
+.controls .bet small{display:flex;justify-content:center;align-items:center;gap:1cqw;font-size:2.5cqw;white-space:nowrap}
+#bet-multiplier{font:700 2.8cqw Fredoka,ui-rounded,sans-serif;color:#845128}
+.controls .bet output{display:block;font-size:3.7cqw;line-height:1.2;white-space:nowrap;font-variant-numeric:tabular-nums;margin-top:.4cqw}
+
+/* Turbo belongs to the tray edge; its top stays below the last candy row. */
+.board>.controls.scene-turbo{position:absolute;top:auto;bottom:-8.1%;left:35.7%;right:auto;width:28.6%;height:12.4%;z-index:8;margin:0;gap:0;filter:drop-shadow(0 2px 1px #59311355)}
+.board>.controls.scene-turbo:before{content:"";position:absolute;left:9%;right:9%;top:4%;height:30%;border-radius:0 0 9px 9px;background:linear-gradient(#c59451,#f5d390 45%,#a56b32);box-shadow:inset 0 1px #fff0bd;z-index:-1}
+.board>.controls.scene-turbo .turbo{width:100%;height:100%;padding:.5cqw 3cqw;gap:.6cqw}
+.turbo-border-light{position:absolute;inset:.4%;width:99.2%;height:99.2%;pointer-events:none;z-index:1;opacity:0;transition:opacity .4s;overflow:visible}
+.turbo-border-light rect{fill:none;stroke:#ffe0a0;stroke-width:4;stroke-linecap:round;stroke-dasharray:65 290 22 470;filter:drop-shadow(0 0 4px #ffc253);vector-effect:non-scaling-stroke}
+.game.turbo-active .turbo-border-light{opacity:.85}
+.game.turbo-active .turbo-border-light rect{animation:turbo-edge-travel 8s linear infinite}
+.game.turbo-active .board-frame{filter:drop-shadow(0 1.2cqw 1cqw #351b0c70) drop-shadow(0 0 .55cqw #e9ab4a99)}
+@keyframes turbo-edge-travel{to{stroke-dashoffset:-847}}
+@media(prefers-reduced-motion:reduce){.game.turbo-active .turbo-border-light rect{animation:none;stroke-dasharray:none;stroke-width:2}.turbo-border-light{transition:none}}
+
+/* Cherry enamel and fixed brass fasteners replace the card flip. */
+.board .controls.scene-turbo:before{left:15%;right:15%;top:-8%;height:38%;background:linear-gradient(#926030,#ffe1a0,#a8743d) left top/15% 100% no-repeat,linear-gradient(#926030,#ffe1a0,#a8743d) right top/15% 100% no-repeat;box-shadow:none;border-radius:0}
+.turbo-enamel{position:absolute;inset:15% 13%;z-index:-1;border-radius:1.8cqw;background:linear-gradient(#b44a36,#9b302a 55%,#74251f);box-shadow:inset 0 1px 1px #f9b37c88,inset 0 -1px 2px #46170d66;opacity:0;transition:opacity .25s}
+.controls .turbo[aria-pressed=true] .turbo-enamel{opacity:1}
+.controls .turbo[aria-pressed=true],.controls .turbo[aria-pressed=true] #turbo-status{color:#fff1d2;text-shadow:0 1px 1px #582219}
+.controls .turbo[aria-pressed=true]>b .turbo-off-art{display:block}
+.controls .turbo[aria-pressed=true]>b .turbo-on-art{display:none}
+.board .controls .turbo::after,.board .controls .turbo[aria-pressed=true]::after{content:"";display:block;position:absolute;left:15%;right:15%;top:18%;height:.8cqw;background:radial-gradient(circle,#fff1b9 0 12%,#b78343 30%,#65411f 65%,transparent 70%) left center/.8cqw .8cqw no-repeat,radial-gradient(circle,#fff1b9 0 12%,#b78343 30%,#65411f 65%,transparent 70%) right center/.8cqw .8cqw no-repeat;pointer-events:none}
+.game.turbo-active .turbo-border-light rect{stroke:#ee8560;filter:drop-shadow(0 0 3px #bd422b)}
+.game.turbo-active .board-frame{filter:drop-shadow(0 1.2cqw 1cqw #351b0c70) drop-shadow(0 0 .5cqw #b7432d88)}
+.controls .bet{padding-left:7.8cqw;padding-right:7.8cqw;gap:.65cqw}
+.controls .bet .icon{width:6.6cqw;height:6.6cqw;flex-basis:6.6cqw}
+@media(prefers-reduced-motion:reduce){.turbo-enamel{transition:none}}
+
+/* Full sculpted enamel and a warm, continuous turbo atmosphere. */
+.turbo-enamel{inset:0;border-radius:0;box-shadow:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20300%20100%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22r%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23bf5540%22/%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23a13129%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2370241d%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20fill%3D%22url%28%23r%29%22%20d%3D%22M43%208H257Q270%208%20272%2023Q276%2036%20290%2050Q276%2064%20272%2077Q270%2092%20257%2092H43Q30%2092%2028%2077Q24%2064%2010%2050Q24%2036%2028%2023Q30%208%2043%208Z%22/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.game .turbo-border-light{display:none}
+.game.turbo-active .board-frame{filter:drop-shadow(0 1.2cqw 1cqw #351b0c70) drop-shadow(0 0 1.2cqw #b8433277)}
+.game .board .grid{transition:box-shadow .4s,background-color .4s}
+.game.turbo-active .board .grid{background-color:#a4392110;box-shadow:inset 0 0 2.6cqw #b5382945;animation:turbo-warmth 2.4s ease-in-out infinite}
+@keyframes turbo-warmth{0%,100%{box-shadow:inset 0 0 2cqw #b538292b}50%{box-shadow:inset 0 0 3.5cqw #b5382955}}
+@media(prefers-reduced-motion:reduce){.game.turbo-active .board .grid{animation:none}}
+
+/* Gold carving sits physically above the recessed red enamel. */
+.controls .turbo .turbo-ornaments{z-index:0;animation:none;filter:none;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20300%20100%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20fill-rule%3D%22evenodd%22%20d%3D%22M0%200H300V100H0Z%20M51%2018H249Q263%2018%20266%2033L280%2050%20266%2067Q263%2082%20249%2082H51Q37%2082%2034%2067L20%2050%2034%2033Q37%2018%2051%2018Z%22/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.turbo-enamel:after{content:"";position:absolute;inset:12% 8%;border-radius:2cqw;box-shadow:inset 0 .65cqw .8cqw #43180dcc,inset 0 -.25cqw .3cqw #f2996a66;pointer-events:none}
+.controls .turbo>b,.controls .turbo>span:not(.turbo-frame){position:relative;z-index:1}
+.controls .turbo .turbo-bolts{position:absolute;left:-65%;top:-65%;width:230%;height:200%;overflow:visible;pointer-events:none;opacity:0;z-index:-2;transition:opacity .25s}
+.turbo-bolts path{fill:#ffdc83;stroke:#a95421;stroke-width:1;stroke-linejoin:round;filter:drop-shadow(0 0 3px #ed8739)}
+.controls .turbo[aria-pressed=true] .turbo-bolts{opacity:1}
+.controls .turbo[aria-pressed=true] .turbo-bolts path{animation:turbo-bolt-energy 1.6s ease-in-out infinite;transform-origin:50% 60%}
+.controls .turbo[aria-pressed=true] .turbo-bolts path:last-child{animation-delay:-.65s}
+@keyframes turbo-bolt-energy{0%,100%{opacity:.55;transform:scale(.94)}45%{opacity:1;transform:scale(1.035)}70%{opacity:.75;transform:scale(.99)}}
+@media(prefers-reduced-motion:reduce){.controls .turbo[aria-pressed=true] .turbo-bolts path{animation:none}.controls .turbo .turbo-bolts{transition:none}}
+
+/* Turbo uses its enamel state; the plaque needs only one centered label. */
+.controls.scene-turbo .turbo #turbo-status{display:none}
+.controls.scene-turbo .turbo>span:not(.turbo-frame){bottom:auto;top:auto;left:auto;right:auto;line-height:1;align-self:center;margin:0}
+
+/* Active state is painted into the original artwork, beneath its gold carving. */
+.controls .turbo .turbo-enamel{display:none}
+.controls .turbo[aria-pressed=true]{--ornate-plate:url('../assets/rewards/etiqueta-turbo-vermelha.png')}
+.controls .turbo .turbo-bolts{left:-65%;top:-60%;opacity:0}
+.controls .turbo .turbo-bolts path{fill:none;stroke:#ffeac1;stroke-width:.85;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 1px #fff7df) drop-shadow(0 0 3px #f0a44c);stroke-dasharray:100;stroke-dashoffset:100;opacity:0;transform:none}
+.controls .turbo[aria-pressed=true] .turbo-bolts path{animation:turbo-electric-trace 3.7s linear infinite}
+.controls .turbo[aria-pressed=true] .turbo-bolts g:nth-child(2) path{animation-delay:-1.6s}
+.controls .turbo[aria-pressed=true] .turbo-bolts g path:nth-child(2){animation-delay:.12s;stroke-width:.55}
+.controls .turbo[aria-pressed=true] .turbo-bolts g:nth-child(2) path:nth-child(2){animation-delay:-1.48s}
+@keyframes turbo-electric-trace{0%,35%{opacity:0;stroke-dashoffset:100}39%{opacity:.3}47%{opacity:.9;stroke-dashoffset:0}49%{opacity:.12}51%{opacity:.8}54%{opacity:.2}57%{opacity:.6;stroke-dashoffset:0}66%,100%{opacity:0;stroke-dashoffset:-100}}
+@media(prefers-reduced-motion:reduce){.controls .turbo[aria-pressed=true] .turbo-bolts{display:none}}
+
+/* One menu, with the invitation form already open. */
+#settings{overflow:hidden;max-height:calc(100dvh - 40px)}
+#settings .menu-content{max-height:calc(100dvh - 105px);overflow-y:auto;padding:0 5px 6px;scrollbar-width:thin;scrollbar-color:#ad7b3e #f5e6c9}
+#settings .menu-heading{min-height:100px;margin-bottom:8px}
+#settings #help-open{width:100%;margin:0 0 20px}
+#settings .menu-invite{border-top:1px solid #be94534d;padding-top:18px}
+#settings .menu-invite h2{font:600 25px/1.15 Fredoka,ui-rounded,sans-serif;color:#6a4229;margin:0 0 6px}
+#settings .menu-invite>p{font-size:14px;line-height:1.4;margin:0 0 18px}
+#settings .invite-note{font-size:12px;line-height:1.5;margin:5px 0;color:#785a3e}
+
+/* Ruby lighting changes the room's mood while HUD text stays above it. */
+.turbo-atmosphere{position:absolute;inset:0;z-index:7;pointer-events:none;opacity:0;mix-blend-mode:soft-light;background:radial-gradient(ellipse at 50% 45%,#c7563912 15%,#b6192780 72%,#710e25bc),linear-gradient(135deg,#c93d3944,#bd342520 55%,#94152766);transition:opacity .65s ease}
+.game.turbo-active .turbo-atmosphere{opacity:1}
+.game.turbo-active .board .grid{background-color:#a52e252b;box-shadow:inset 0 0 3cqw #b5382945}
+.game .board-frame:after{content:"";position:absolute;inset:2%;border-radius:6%;pointer-events:none;opacity:0;background:linear-gradient(145deg,#e346382c,#b7272520);mix-blend-mode:color;transition:opacity .65s}
+.game.turbo-active .board-frame:after{opacity:1}
+.controls .turbo .turbo-inner-electric{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;overflow:hidden}
+.controls .turbo[aria-pressed=true] .turbo-inner-electric{opacity:1}
+.turbo-inner-electric path{fill:none;stroke:#fff0c9;stroke-width:.65;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;opacity:0;filter:drop-shadow(0 0 1.5px #ffcf84) drop-shadow(0 0 3px #ff954d)}
+.controls .turbo[aria-pressed=true] .turbo-inner-electric path{animation:turbo-electric-trace 3.7s linear infinite;animation-delay:-.7s}
+.controls .turbo[aria-pressed=true] .turbo-inner-electric path:last-child{animation-delay:-2.4s}
+@media(prefers-reduced-motion:reduce){.turbo-atmosphere,.game .board-frame:after{transition:none}.controls .turbo[aria-pressed=true] .turbo-inner-electric{display:none}}
