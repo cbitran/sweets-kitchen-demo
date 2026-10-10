@@ -33,6 +33,7 @@
   const levels=[.28,.28,.28,.28];
   let lastMeter=0;
   function meter(){
+    if(!document.querySelector('#sound .sound-bars'))return;
     if(!enabled)return;
     const now=performance.now(),dt=Math.min(100,now-lastMeter||16);lastMeter=now;
     const data=new Uint8Array(analyser.frequencyBinCount);analyser.getByteFrequencyData(data);

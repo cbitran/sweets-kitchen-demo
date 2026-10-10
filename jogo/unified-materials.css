@@ -320,3 +320,11 @@ dialog .paper-button,dialog>.paper-button:last-child{border:0;border-radius:0;ba
 .controls .turbo[aria-pressed=true] .turbo-inner-electric path{animation:turbo-electric-trace 3.7s linear infinite;animation-delay:-.7s}
 .controls .turbo[aria-pressed=true] .turbo-inner-electric path:last-child{animation-delay:-2.4s}
 @media(prefers-reduced-motion:reduce){.turbo-atmosphere,.game .board-frame:after{transition:none}.controls .turbo[aria-pressed=true] .turbo-inner-electric{display:none}}
+
+/* Familiar music control: speaker on/off inside the existing painted key. */
+.hud>#sound,.hud>#sound[aria-pressed=true]{color:#795030}
+.sound-speaker{display:block;width:62%;height:62%;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sound-speaker .speaker-body{fill:currentColor;stroke-width:1.1}
+.sound-speaker .speaker-muted{display:none}
+#sound[aria-pressed=false] .speaker-waves{display:none}
+#sound[aria-pressed=false] .speaker-muted{display:block}
