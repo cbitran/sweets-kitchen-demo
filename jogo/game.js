@@ -222,28 +222,23 @@
     $('game').classList.toggle('celebrating',happy);
     let chefPose='principal';
     if(state.phase==='spinning'||state.phase==='reveal')chefPose='torcendo';
-    if(state.phase==='cascade')chefPose='surpreso';
+    if(state.phase==='cascade')chefPose='esperando';
     if(happy)chefPose='comemorando';
     if(state.phase==='result'){
       if(state.outcome==='win'||(state.mode==='demo'&&state.hasMatches))chefPose='comemorando';
       else if(state.outcome==='loss'||(state.mode==='demo'&&!state.hasMatches))chefPose='triste';
     }
-    const speech=$('chef-speech');
-    if(state.phase==='result'&&newPhase){
-      hideSpeech();
-      const phrases=chefPose==='comemorando'
-        ? ['Essa ficou no ponto!','Uma fornada de sorrisos!','Que doce surpresa!']
-        : chefPose==='triste'
-          ? ['Essa fornada não saiu como eu esperava…','Poxa, não foi dessa vez.','Até chef tem uma fornada difícil.']
-          : ['Tudo pronto por aqui!'];
-      showSpeech(phrases[(Math.max(1,state.round)-1)%phrases.length],false);
-    }else if(state.phase==='settled'&&newPhase){
+    const won=state.hasMatches||state.totalWin>0||state.outcome==='win';
+    if(state.phase==='highlight'&&newPhase&&highlighted.size){
+      const phrases=['Essa ficou no ponto!','Uma fornada de sorrisos!','Que doce surpresa!'];
+      showSpeech(phrases[(Math.max(1,state.round)-1)%phrases.length]);
+    }else if(state.phase==='result'&&newPhase){
+      showSpeech(won?'Vamos para mais uma fornada?':'Poxa, não foi dessa vez.');
+    }else if(state.phase==='settled'&&newPhase&&!won){
       showSpeech('Vamos para mais uma fornada?');
     }else if(state.phase==='spinning'&&newPhase){
       showSpeech('Estou torcendo por você!');
-    }else if(!['settled','result','spinning','reveal'].includes(state.phase)){
-      hideSpeech();
-    }
+    }else if(state.phase==='idle'&&newPhase){hideSpeech();}
     if(newPhase&&!creditedRounds.has(state.round)&&((state.phase==='highlight'&&highlighted.size>0&&state.totalWin>0)||state.phase==='result')){
       creditedRounds.add(state.round);
       const cents=Math.round((state.totalWin||0)*100);

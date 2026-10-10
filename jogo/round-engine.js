@@ -187,7 +187,7 @@
     const weight={cereja:1,pirulito:4,donut:2,macaron:3,cupcake:2,bolo:0,forno:0}[symbol]||0;
     const incoming=row<refillCount;
     return {
-      delay:incoming?1450+columnOrder[column]*65+(refillCount-1-row)*210:columnOrder[column]*65+(4-row)*105,
+      delay:incoming?1000+columnOrder[column]*65+(refillCount-1-row)*210:columnOrder[column]*65+(4-row)*105,
       duration:(incoming?450:350)+weight*24+refillCount*40,
       easing:'cubic-bezier(.38,.05,.68,1)'
     };
@@ -263,16 +263,18 @@
         await delay(3000 * speed, signal);
         const steps = result.steps;
         const perStep = speed;
-        let chainIndex=0,hasMatches=false;
+        let chainIndex=0,hasMatches=false,coinsCompleteAt=0;
         for (const step of steps) {
           if(step.matched.length){chainIndex++;hasMatches=true;}
           const visual={};
           if(step.multiplier!==undefined)visual.multiplier=step.multiplier;
           if(step.fornadaProgress!==undefined)visual.fornadaProgress=step.fornadaProgress;
           this._emit({ phase: 'highlight', highlighted: step.matched.slice(), removed: [], chainIndex, comboSize: step.matched.length, hasMatches, ...visual });
-          await delay((step.matched.length ? 4300 : 200 * perStep), signal);
+          // Coin flight and board refill run concurrently from the same win.
+          if(step.matched.length)coinsCompleteAt=Math.max(coinsCompleteAt,performance.now()+3600+(Math.min(8,step.matched.length)-1)*75);
+          await delay(step.matched.length ? 820 : 200 * perStep, signal);
           this._emit({ phase: 'disappear', highlighted: [], removed: step.matched.slice() });
-          await delay(step.matched.length ? 880 : 300 * perStep, signal);
+          // Burst already finished during highlight; no second empty-grid pause.
           const refillCounts=Array.from({length:6},(_,col)=>step.matched.filter(index=>index%6===col).length);
           let cascadeDuration=450;
           step.grid.forEach((symbol,index)=>{
@@ -283,10 +285,14 @@
           this._emit({ phase: 'cascade', grid: step.grid.slice(), highlighted: [], removed: [] });
           await delay(cascadeDuration * perStep, signal);
         }
+        // Only release the next round after outstanding coin arrivals, without
+        // delaying the cascade or any later matching steps.
+        const remainingFlight=coinsCompleteAt-performance.now();
+        if(remainingFlight>0)await delay(remainingFlight+80,signal);
         // Board and coin presentation is complete; speech no longer locks input.
         this._busy = false;
         this._emit({ phase: 'result', highlighted: [], removed: [] });
-        await delay(5000, signal);
+        await delay(2200, signal);
         this._emit({ phase: 'settled', highlighted: [], removed: [] });
         await delay(200 * speed, signal);
         return !signal.aborted;
