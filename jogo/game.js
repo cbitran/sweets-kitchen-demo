@@ -99,7 +99,7 @@
       const animation=shard.animate(frames,{duration:820,easing:'linear',fill:'both'});
       animation.finished.catch(()=>{}).finally(()=>shard.remove());
     }
-    img.animate([{transform:'scale(1.04)',opacity:1},{offset:.12,transform:'scale(.94,1.06)',opacity:1},{offset:.18,transform:'scale(1.12)',opacity:0},{transform:'scale(1.12)',opacity:0}],{duration:820,fill:'both',easing:'linear'});
+    img.animate([{opacity:1},{offset:.12,opacity:1},{offset:.18,opacity:0},{opacity:0}],{duration:820,fill:'both',easing:'linear'});
   }
   function sparkleMatches(indices){
     if(reducedMotion.matches)return;
@@ -201,7 +201,7 @@
       cell.classList.toggle('disappear',state.phase==='disappear' && removed.has(i));
       cell.classList.toggle('falling',state.phase==='cascade' && fallSources.get(i)!==Math.floor(i/6));
       if(newPhase){
-        const row=Math.floor(i/6),col=i%6,step=grid.clientHeight/5;
+        const row=Math.floor(i/6),col=i%6,step=cells[6].cell.offsetTop-cells[0].cell.offsetTop;
         if(state.phase==='spinning')move(img,[{transform:'translateY(0)',opacity:1},{transform:`translateY(${grid.clientHeight}px)`,opacity:0}],240,col*14);
         if(state.phase==='reveal')move(img,[{transform:`translateY(${-step*(row+1.2)}px)`,opacity:0},{offset:.04,transform:`translateY(${-step*(row+1)}px)`,opacity:1},{transform:'translateY(0)',opacity:1}],430,180+col*70+(4-row)*460);
         if(state.phase==='highlight'&&highlighted.has(i))burstCandy(img);
@@ -251,7 +251,8 @@
       $('winnings-total').setAttribute('aria-label',`${coinAmount(accumulatedCents)} moedas fictícias acumuladas`);
 
     }
-    $('game').dataset.chefBasePose=!engine.busy?'esperando':chefPose;
+    // A loss reaction lasts through the result speech even though Girar is available.
+    $('game').dataset.chefBasePose=state.phase==='result'&&!won?'triste':!engine.busy?'esperando':chefPose;
     if(state.fornadaProgress!==undefined){
       $('fornada-progress').setAttribute('aria-valuenow',String(state.fornadaProgress));
       $('fornada-progress').querySelector('i').style.width=state.fornadaProgress+'%';

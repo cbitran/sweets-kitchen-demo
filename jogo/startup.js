@@ -64,7 +64,8 @@
     done.push(animate(game.querySelector('.board'),[{opacity:0,transform:'translateY(30px) scale(.94)'},{opacity:1,transform:'none'}],750,780));
     for(const [index,img] of [...document.querySelectorAll('.cell img')].entries()){
       const row=Math.floor(index/6),col=index%6;
-      const step=document.getElementById('grid').clientHeight/5;
+      const gridCells=document.querySelectorAll('.cell');
+      const step=gridCells[6].offsetTop-gridCells[0].offsetTop;
       done.push(animate(img,[{opacity:0,transform:`translateY(${-step*(row+1.2)}px)`},{opacity:1,transform:`translateY(${-step*(row+1)}px)`,offset:.04},{opacity:1,transform:'none'}],430,1740+col*70+(4-row)*460));
     }
     for(const [selector,offset] of [['.reward-jar',1000],['.hud',660],['.round-tools',800],['.game>.controls',960],['.spin',1120],['footer',1180]]){

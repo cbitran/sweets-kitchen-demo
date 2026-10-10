@@ -210,3 +210,7 @@
 .coin-speed-trail path:nth-child(2){stroke:#ffc868;stroke-width:1.8;opacity:.55}
 .coin-speed-trail path:nth-child(3){stroke:#fff3bf;stroke-width:.8;opacity:.9}
 @media(prefers-reduced-motion:reduce){.coin-speed-trail{display:none}}
+
+/* A landed sweet keeps the same geometry when a match is highlighted. */
++.grid .cell img,.grid .cell.highlight img,.grid.has-match .cell.highlight img{transform:translateY(0)}
++
